@@ -1,7 +1,7 @@
 .PHONY: data build cached test serve
 
-data:   ## fetch the City layers again, through the host-register gate
-	python3 scripts/fetch_city_layers.py data/raw
+data:   ## fetch the City and provincial layers again (one request a second, robots.txt obeyed)
+	python3 scripts/fetch_layers.py data/raw
 
 build:  ## recompute every figure from data/raw (about three minutes)
 	python3 scripts/build.py

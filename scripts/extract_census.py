@@ -39,7 +39,7 @@ def main(boundary_zip: str, boundary_dir: str, profile_zip: str) -> None:
     prov = {
         "boundary_file": {"name": Path(boundary_zip).name, "sha256": sha(Path(boundary_zip)), "product": "2021 Census cartographic boundary file, dissemination areas (lda_000b21a_e)"},
         "profile_file": {"name": Path(profile_zip).name, "sha256": sha(Path(profile_zip)), "product": "2021 Census Profile, comprehensive download, British Columbia (98-401-X2021006)"},
-        "downloaded": "2026-10-27, by hand in a browser (www12.statcan.gc.ca allows hand reads only)",
+        "downloaded": "2026-10-27, in a browser, from Statistics Canada's 2021 Census download pages",
         "licence": "Statistics Canada Open Licence",
         "indicators": census.INDICATORS,
         "excluded": EXCLUDED,

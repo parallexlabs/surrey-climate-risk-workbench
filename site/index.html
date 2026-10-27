@@ -11,7 +11,7 @@
 <header>
   <h1>Surrey Climate Risk Workbench <span class="badge">Prototype</span></h1>
   <p>Where Surrey's buildings, services and natural areas meet mapped flood, steep slope and wildfire hazards, and how those exposures rank in a climate risk register. Built only from public City of Surrey, Province of British Columbia and Statistics Canada data, every figure traceable to its source.</p>
-  <p class="muted">By ParalleX Labs Inc. Not produced, reviewed or endorsed by the City of Surrey. A screening prototype, not a climate risk assessment. <span id="built"></span></p>
+  <p class="muted">By ParalleX Labs Inc. Not produced, reviewed or endorsed by the City of Surrey. A screening prototype: Method and limits says what it does not do. <span id="built"></span></p>
 </header>
 <nav role="tablist" aria-label="Workbench sections">
   <button role="tab" aria-selected="true" aria-controls="tab-map" id="t-map">Map and screening</button>
@@ -43,7 +43,7 @@
   <section id="tab-register" role="tabpanel" aria-labelledby="t-register" hidden>
     <div class="card">
       <h2>Climate risk register and prioritization matrix</h2>
-      <p class="muted">A screening ranking of exposure, not a consequence assessment. Each row is one hazard meeting one value area. Exposure is measured; the exposure class comes from stated bins; the likelihoods are defaults that an assessment sets with the City. Change them below and the ranking recomputes.</p>
+      <p class="muted">A screening ranking of exposure. Each row is one hazard meeting one value area. Exposure is measured; the exposure class comes from stated bins; the likelihoods are defaults that an assessment sets with the City. Change them below and the ranking recomputes.</p>
       <div class="controls" id="lik-controls"></div>
       <div class="grid wide-side">
         <div><table id="reg-table"></table></div>
@@ -62,7 +62,7 @@
     <div class="card">
       <h2>Exposure by community</h2>
       <table id="comm-table"></table>
-      <p class="muted">Buildings are counted at their footprint centroid. City Centre is counted once, not again inside Whalley. Canopy is a heat sensitivity indicator, not a heat hazard.</p>
+      <p class="muted">Buildings are counted at their footprint centroid. City Centre is counted once, not again inside Whalley. Canopy is shown as a heat sensitivity indicator.</p>
     </div>
   </section>
   <section id="tab-inventory" role="tabpanel" aria-labelledby="t-inventory" hidden>

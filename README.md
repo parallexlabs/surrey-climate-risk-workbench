@@ -2,7 +2,7 @@
 
 A public-data prototype of the data side of a climate risk and resilience assessment for Surrey, British Columbia: a climate hazard data inventory, a GIS exposure package, a screening ranking of hazard exposure on a 5 by 5 matrix, a vulnerability layer, and a site screening checklist. Every figure is computed by script from saved public inputs, each recorded with its address, retrieval time and SHA-256.
 
-It is an exposure-screening prototype for discussion, not a climate risk assessment and not a consequence assessment. It was not produced, reviewed or endorsed by the City of Surrey.
+It is an exposure-screening prototype for discussion; the list below says what it does not do. It was not produced, reviewed or endorsed by the City of Surrey.
 
 ## What it shows
 
@@ -26,7 +26,7 @@ It is an exposure-screening prototype for discussion, not a climate risk assessm
 | Fleetwood | 66,787 | 800 | 15,312 | 0.1% | 0.0% | 4.3% | 0.0% | 27.6% |
 | City Centre | 37,286 | 0 | 4,023 | 0.0% | 0.0% | 3.1% | 0.0% | 20.0% |
 
-Built 2026-10-27. Footprints are counted at their centroid; City Centre is counted once, not again inside Whalley. Residents exposed are estimated from each dissemination area's population and its share of footprints in the hazard area, which assumes equal occupancy per footprint, so they are rounded.
+Built 2026-10-27. Footprints are counted at their centroid; City Centre is counted once, and Whalley's figures exclude it. Residents exposed are estimated from each dissemination area's population and its share of footprints in the hazard area, which assumes equal occupancy per footprint, so they are rounded.
 
 ## Screening ranking (default likelihoods)
 
@@ -51,11 +51,11 @@ Built 2026-10-27. Footprints are counted at their centroid; City Centre is count
 | 17 | Riverine and coastal flooding | Emergency response sites | 0 sites | 2 | No exposure found |
 | 17 | Steep slope instability | Drainage and water infrastructure | 0 sites | 2 | No exposure found |
 
-Screening score = default likelihood × exposure class (from stated bins). Rows with equal scores and data confidence share a rank. Drainage pump stations sit in the floodplain they drain, by design: their row flags them for a resilience check, not as misplaced. Much of the natural area in the floodplain and on steep slopes is riparian and ravine land that is so by nature; its consequence needs an ecological review.
+Screening score = default likelihood × exposure class (from stated bins). Rows with equal scores and data confidence share a rank. Drainage pump stations sit in the floodplain they drain, by design: their row flags them for a resilience check of power, controls and access during a flood. Much of the natural area in the floodplain and on steep slopes is riparian and ravine land that is so by nature; its consequence needs an ecological review.
 
 ## How it works
 
-1. `scripts/fetch_city_layers.py` reads the City's open layers one request a second, through the seat's host-register gate, and saves every page with its provenance. The provincial wildfire layer comes from the BC Geographic Warehouse the same way.
+1. `scripts/fetch_layers.py` reads the City's open layers and the provincial fire threat layer one request a second, obeying each host's robots.txt, and saves every page with its provenance.
 2. `scripts/extract_census.py` cuts Surrey's 666 dissemination areas and seven indicators out of the two Statistics Canada downloads (boundaries reprojected from Statistics Canada Lambert to UTM zone 10N in plain Python) and records their SHA-256. The Semiahmoo First Nation reserve, an enclave inside the City's boundary that is not part of the City, is left out, so the total equals the City's 2021 count, 568,322.
 3. `src/surrey_risk/metrics.py` places each footprint, site and dissemination area, tests each against each hazard (point in polygon; a 25 m grid for the distance tests) and sums by community.
 4. `src/surrey_risk/register.py` turns exposure into an exposure class through stated bins and multiplies by the default likelihood.
@@ -70,14 +70,15 @@ make serve    # view site/ locally
 
 Python 3.11 or later, standard library only.
 
-## Limits
+## What this does not do
 
-- Exposure is not consequence: the ranking counts what sits in a mapped hazard area, not what it would lose. Likelihoods are defaults for demonstration; an assessment sets them with the City for its chosen time horizons and scenarios.
-- Flooding: the 200-year floodplain is a design event (0.5% annual exceedance), not a uniform inundation probability; ground at or below 3 m is a low-lying screening flag, not an inundation model. No depth, damage or future climate is modelled.
-- Steep slopes: the City's Hazard Lands classes as published; no landslide likelihood or runout.
-- Wildfire: PSTA is a relative threat class, not an annual probability. Private land is a no-data class, so fuels there are not rated; footprints on private land near rated public-land polygons are counted. The 200 m distance is a screening choice.
-- People: the vulnerability index is a simple public stand-in from seven indicators with equal weights; the City's own vulnerability work takes its place in an assessment, and area averages cannot say which individuals are vulnerable.
-- Extreme heat and wildfire smoke are current hazards in Surrey that this prototype lists but cannot rate; drought and drainage need layers it does not have.
+- Rate consequence. The ranking counts what sits inside a mapped hazard area; its likelihoods are defaults that an assessment sets with the City for its own time horizons and scenarios.
+- Model inundation, depth, damage or future climate. The floodplain is the City's mapped 200-year design event (0.5% annual exceedance); ground at or below 3 m is a screening flag for low-lying land.
+- Give a landslide likelihood or runout. Steep slopes are the City's Hazard Lands classes as published.
+- Give an annual wildfire probability. PSTA is a relative threat class; private land is a no-data class, so fuels there are unrated, while footprints on private land near rated public-land polygons are counted. The 200 m distance is a screening choice.
+- Give fire response times. The checklist shows the straight-line distance to the nearest fire hall.
+- Rate extreme heat or wildfire smoke, both current hazards in Surrey, or drought and drainage, which need layers this prototype does not have.
+- Identify vulnerable individuals. The index is a simple public stand-in from seven census indicators with equal weights; the City's own vulnerability work takes its place in an assessment.
 
 ## Data licences
 
