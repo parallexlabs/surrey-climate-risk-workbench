@@ -1,0 +1,14 @@
+priority,hazard,value area,exposure,unit,likelihood,consequence,score,class,confidence
+1,Riverine and coastal flooding,Drainage and water infrastructure,40.0,sites,2,5,10,High,High
+2,Steep slope instability,Buildings and property,6.07,share of the city's buildings,2,4,8,Medium,High
+3,Steep slope instability,Emergency response sites,2.0,sites,2,4,8,Medium,High
+4,Wildfire at the urban interface,Emergency response sites,2.0,sites,2,4,8,Medium,Medium
+5,Wildfire at the urban interface,Schools and community services,6.0,sites,2,4,8,Medium,Medium
+6,Wildfire at the urban interface,Natural areas,68.5,hectares of park natural area,2,4,8,Medium,Medium
+7,Riverine and coastal flooding,Buildings and property,4.03,share of the city's buildings,2,3,6,Medium,High
+8,Riverine and coastal flooding,Schools and community services,5.0,sites,2,3,6,Medium,High
+9,Steep slope instability,Schools and community services,4.0,sites,2,3,6,Medium,High
+10,Wildfire at the urban interface,Buildings and property,3.55,share of the city's buildings,2,3,6,Medium,Medium
+11,Wildfire at the urban interface,Drainage and water infrastructure,3.0,sites,2,3,6,Medium,Medium
+12,Riverine and coastal flooding,Emergency response sites,0.0,sites,2,1,2,Low,High
+13,Steep slope instability,Drainage and water infrastructure,0.0,sites,2,1,2,Low,High

@@ -1,0 +1,403 @@
+{
+ "hazards": {
+  "flood": {
+   "name": "Riverine and coastal flooding",
+   "layer": "City of Surrey 200-year floodplain (with ground at or below 3 m as a sea-level-rise flag)",
+   "likelihood": 2,
+   "likelihood_note": "The mapped event has a 0.5% chance in any year; sea level rise and heavier rain raise that over time.",
+   "confidence": "High"
+  },
+  "steep": {
+   "name": "Steep slope instability",
+   "layer": "City of Surrey Hazard Lands development permit area (steep slopes and their 10 to 30 m buffer)",
+   "likelihood": 2,
+   "likelihood_note": "Mapped steep ground; heavier rain raises the chance of slope failure.",
+   "confidence": "High"
+  },
+  "wildfire": {
+   "name": "Wildfire at the urban interface",
+   "layer": "BC Wildfire Service PSTA fire threat, moderate or high, within 200 m (public land only; private land is not rated)",
+   "likelihood": 2,
+   "likelihood_note": "Moderate and high provincial threat ratings exist on public land in Grandview, Guildford and South Surrey.",
+   "confidence": "Medium"
+  }
+ },
+ "value_areas": {
+  "buildings": {
+   "name": "Buildings and property",
+   "unit": "share of the city's buildings",
+   "bins": [
+    0.5,
+    2,
+    5,
+    10
+   ]
+  },
+  "emergency": {
+   "name": "Emergency response sites",
+   "unit": "sites",
+   "bins": [
+    0.5,
+    1,
+    2,
+    3
+   ],
+   "kinds": [
+    "fire halls",
+    "emergency services"
+   ]
+  },
+  "utilities": {
+   "name": "Drainage and water infrastructure",
+   "unit": "sites",
+   "bins": [
+    0.5,
+    3,
+    10,
+    25
+   ],
+   "kinds": [
+    "drainage pump stations",
+    "water utility facilities"
+   ]
+  },
+  "community": {
+   "name": "Schools and community services",
+   "unit": "sites",
+   "bins": [
+    0.5,
+    2.5,
+    5.5,
+    10.5
+   ],
+   "kinds": [
+    "schools",
+    "community-based organizations"
+   ]
+  },
+  "natural": {
+   "name": "Natural areas",
+   "unit": "hectares of park natural area",
+   "bins": [
+    0.5,
+    10,
+    50,
+    150
+   ],
+   "hazards": [
+    "wildfire"
+   ]
+  }
+ },
+ "classes": [
+  [
+   4,
+   "Low"
+  ],
+  [
+   9,
+   "Medium"
+  ],
+  [
+   16,
+   "High"
+  ],
+  [
+   25,
+   "Very high"
+  ]
+ ],
+ "rows": [
+  {
+   "hazard": "flood",
+   "hazard_name": "Riverine and coastal flooding",
+   "value_area": "utilities",
+   "value_area_name": "Drainage and water infrastructure",
+   "exposure": 40.0,
+   "unit": "sites",
+   "by_community": {
+    "GRANDVIEW": 11,
+    "NEWTON": 8,
+    "CLOVERDALE": 8,
+    "WHALLEY": 8,
+    "CLAYTON": 3,
+    "SOUTH SURREY": 1,
+    "GUILDFORD": 1
+   },
+   "likelihood": 2,
+   "consequence": 5,
+   "score": 10,
+   "class": "High",
+   "confidence": "High",
+   "note": "Drainage pump stations sit in the floodplain they drain, by design: the rating flags them for a resilience check (power, controls and access during a flood), not as misplaced.",
+   "priority": 1
+  },
+  {
+   "hazard": "steep",
+   "hazard_name": "Steep slope instability",
+   "value_area": "buildings",
+   "value_area_name": "Buildings and property",
+   "exposure": 6.07,
+   "unit": "share of the city's buildings",
+   "by_community": {
+    "CITY CENTRE": 125,
+    "CLAYTON": 519,
+    "CLOVERDALE": 449,
+    "FLEETWOOD": 658,
+    "GRANDVIEW": 907,
+    "GUILDFORD": 1402,
+    "NEWTON": 1521,
+    "SOUTH SURREY": 888,
+    "WHALLEY": 1880
+   },
+   "likelihood": 2,
+   "consequence": 4,
+   "score": 8,
+   "class": "Medium",
+   "confidence": "High",
+   "note": "",
+   "priority": 2
+  },
+  {
+   "hazard": "steep",
+   "hazard_name": "Steep slope instability",
+   "value_area": "emergency",
+   "value_area_name": "Emergency response sites",
+   "exposure": 2.0,
+   "unit": "sites",
+   "by_community": {
+    "GUILDFORD": 2
+   },
+   "likelihood": 2,
+   "consequence": 4,
+   "score": 8,
+   "class": "Medium",
+   "confidence": "High",
+   "note": "",
+   "priority": 3
+  },
+  {
+   "hazard": "wildfire",
+   "hazard_name": "Wildfire at the urban interface",
+   "value_area": "emergency",
+   "value_area_name": "Emergency response sites",
+   "exposure": 2.0,
+   "unit": "sites",
+   "by_community": {
+    "GRANDVIEW": 2
+   },
+   "likelihood": 2,
+   "consequence": 4,
+   "score": 8,
+   "class": "Medium",
+   "confidence": "Medium",
+   "note": "",
+   "priority": 4
+  },
+  {
+   "hazard": "wildfire",
+   "hazard_name": "Wildfire at the urban interface",
+   "value_area": "community",
+   "value_area_name": "Schools and community services",
+   "exposure": 6.0,
+   "unit": "sites",
+   "by_community": {
+    "GRANDVIEW": 4,
+    "SOUTH SURREY": 1,
+    "GUILDFORD": 1
+   },
+   "likelihood": 2,
+   "consequence": 4,
+   "score": 8,
+   "class": "Medium",
+   "confidence": "Medium",
+   "note": "",
+   "priority": 5
+  },
+  {
+   "hazard": "wildfire",
+   "hazard_name": "Wildfire at the urban interface",
+   "value_area": "natural",
+   "value_area_name": "Natural areas",
+   "exposure": 68.5,
+   "unit": "hectares of park natural area",
+   "by_community": {
+    "CITY CENTRE": 0,
+    "CLAYTON": 0,
+    "CLOVERDALE": 0,
+    "FLEETWOOD": 0,
+    "GRANDVIEW": 58.8,
+    "GUILDFORD": 6.6,
+    "NEWTON": 0,
+    "SOUTH SURREY": 3.1,
+    "WHALLEY": 0
+   },
+   "likelihood": 2,
+   "consequence": 4,
+   "score": 8,
+   "class": "Medium",
+   "confidence": "Medium",
+   "note": "",
+   "priority": 6
+  },
+  {
+   "hazard": "flood",
+   "hazard_name": "Riverine and coastal flooding",
+   "value_area": "buildings",
+   "value_area_name": "Buildings and property",
+   "exposure": 4.03,
+   "unit": "share of the city's buildings",
+   "by_community": {
+    "CITY CENTRE": 0,
+    "CLAYTON": 177,
+    "CLOVERDALE": 669,
+    "FLEETWOOD": 11,
+    "GRANDVIEW": 1498,
+    "GUILDFORD": 336,
+    "NEWTON": 295,
+    "SOUTH SURREY": 746,
+    "WHALLEY": 1815
+   },
+   "likelihood": 2,
+   "consequence": 3,
+   "score": 6,
+   "class": "Medium",
+   "confidence": "High",
+   "note": "",
+   "priority": 7
+  },
+  {
+   "hazard": "flood",
+   "hazard_name": "Riverine and coastal flooding",
+   "value_area": "community",
+   "value_area_name": "Schools and community services",
+   "exposure": 5.0,
+   "unit": "sites",
+   "by_community": {
+    "WHALLEY": 4,
+    "SOUTH SURREY": 1
+   },
+   "likelihood": 2,
+   "consequence": 3,
+   "score": 6,
+   "class": "Medium",
+   "confidence": "High",
+   "note": "",
+   "priority": 8
+  },
+  {
+   "hazard": "steep",
+   "hazard_name": "Steep slope instability",
+   "value_area": "community",
+   "value_area_name": "Schools and community services",
+   "exposure": 4.0,
+   "unit": "sites",
+   "by_community": {
+    "GRANDVIEW": 2,
+    "FLEETWOOD": 1,
+    "CLOVERDALE": 1
+   },
+   "likelihood": 2,
+   "consequence": 3,
+   "score": 6,
+   "class": "Medium",
+   "confidence": "High",
+   "note": "",
+   "priority": 9
+  },
+  {
+   "hazard": "wildfire",
+   "hazard_name": "Wildfire at the urban interface",
+   "value_area": "buildings",
+   "value_area_name": "Buildings and property",
+   "exposure": 3.55,
+   "unit": "share of the city's buildings",
+   "by_community": {
+    "CITY CENTRE": 0,
+    "CLAYTON": 3,
+    "CLOVERDALE": 0,
+    "FLEETWOOD": 0,
+    "GRANDVIEW": 2620,
+    "GUILDFORD": 1257,
+    "NEWTON": 0,
+    "SOUTH SURREY": 1005,
+    "WHALLEY": 0
+   },
+   "likelihood": 2,
+   "consequence": 3,
+   "score": 6,
+   "class": "Medium",
+   "confidence": "Medium",
+   "note": "",
+   "priority": 10
+  },
+  {
+   "hazard": "wildfire",
+   "hazard_name": "Wildfire at the urban interface",
+   "value_area": "utilities",
+   "value_area_name": "Drainage and water infrastructure",
+   "exposure": 3.0,
+   "unit": "sites",
+   "by_community": {
+    "GRANDVIEW": 3
+   },
+   "likelihood": 2,
+   "consequence": 3,
+   "score": 6,
+   "class": "Medium",
+   "confidence": "Medium",
+   "note": "",
+   "priority": 11
+  },
+  {
+   "hazard": "flood",
+   "hazard_name": "Riverine and coastal flooding",
+   "value_area": "emergency",
+   "value_area_name": "Emergency response sites",
+   "exposure": 0.0,
+   "unit": "sites",
+   "by_community": {},
+   "likelihood": 2,
+   "consequence": 1,
+   "score": 2,
+   "class": "Low",
+   "confidence": "High",
+   "note": "",
+   "priority": 12
+  },
+  {
+   "hazard": "steep",
+   "hazard_name": "Steep slope instability",
+   "value_area": "utilities",
+   "value_area_name": "Drainage and water infrastructure",
+   "exposure": 0.0,
+   "unit": "sites",
+   "by_community": {},
+   "likelihood": 2,
+   "consequence": 1,
+   "score": 2,
+   "class": "Low",
+   "confidence": "High",
+   "note": "",
+   "priority": 13
+  }
+ ],
+ "not_assessed": [
+  {
+   "hazard": "Extreme heat",
+   "why": "Needs dissemination-area census data for the people it harms; the page shows tree canopy by community as a sensitivity indicator meanwhile."
+  },
+  {
+   "hazard": "Wildfire smoke",
+   "why": "City-wide; its consequence falls on people, so it waits for the census vulnerability layer."
+  },
+  {
+   "hazard": "Drought and water supply",
+   "why": "No spatial City layer; listed in the data inventory."
+  },
+  {
+   "hazard": "Extreme rainfall and drainage",
+   "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."
+  }
+ ]
+}

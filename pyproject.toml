@@ -1,0 +1,10 @@
+[project]
+name = "surrey-climate-risk-workbench"
+version = "0.1.0"
+description = "Public-data prototype of a climate hazard inventory, GIS exposure package, risk register and screening checklist for Surrey, BC"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

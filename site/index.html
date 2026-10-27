@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'">
+<title>Surrey Climate Risk Workbench</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Surrey Climate Risk Workbench <span class="badge">Prototype</span></h1>
+  <p>Where Surrey's buildings, services and natural areas meet mapped flood, steep slope and wildfire hazards, and how those exposures rank in a climate risk register. Built only from public City of Surrey and Province of British Columbia data, every figure traceable to its source.</p>
+  <p class="muted">By ParalleX Labs Inc. Not produced, reviewed or endorsed by the City of Surrey. A screening prototype, not a climate risk assessment. <span id="built"></span></p>
+</header>
+<nav role="tablist" aria-label="Workbench sections">
+  <button role="tab" aria-selected="true" aria-controls="tab-map" id="t-map">Map and screening</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-register" id="t-register">Risk register</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-communities" id="t-communities">Communities</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-inventory" id="t-inventory">Data inventory</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-method" id="t-method">Method and limits</button>
+</nav>
+<main>
+  <section id="tab-map" role="tabpanel" aria-labelledby="t-map">
+    <div class="grid">
+      <div class="card">
+        <h2>Hazards, services and natural areas</h2>
+        <div class="toggles" id="toggles" aria-label="Map layers"></div>
+        <svg id="map" role="img" aria-labelledby="map-title map-desc"><title id="map-title">Map of Surrey</title><desc id="map-desc">Community boundaries with the 200-year floodplain, steep slope hazard lands, moderate and high provincial wildfire threat on public land, park natural areas and service sites. Select a point to screen it.</desc></svg>
+        <p class="muted">Select any point on the map to screen it, or enter coordinates in the panel. The scale bar shows 2 km.</p>
+      </div>
+      <div class="card" aria-live="polite">
+        <h2>Climate risk screening checklist</h2>
+        <form id="screen-form" class="controls">
+          <label>Easting (UTM 10N, m)<input id="in-x" type="number" step="1" inputmode="numeric"></label>
+          <label>Northing (m)<input id="in-y" type="number" step="1" inputmode="numeric"></label>
+          <button class="btn" type="submit">Screen</button>
+        </form>
+        <div id="screen-out"><p class="muted">No location selected yet.</p></div>
+      </div>
+    </div>
+  </section>
+  <section id="tab-register" role="tabpanel" aria-labelledby="t-register" hidden>
+    <div class="card">
+      <h2>Climate risk register and prioritization matrix</h2>
+      <p class="muted">Each row is one hazard meeting one value area. Exposure is measured; likelihood and the consequence bins are stated defaults that the assessment team sets with the City. Change them below and the register recomputes.</p>
+      <div class="controls" id="lik-controls"></div>
+      <div class="grid wide-side">
+        <div><table id="reg-table"></table></div>
+        <div>
+          <h3>Rows by likelihood and consequence</h3>
+          <div class="matrix" id="matrix" aria-label="Risk matrix"></div>
+          <p class="muted">Score = likelihood × consequence. Low 1 to 4, Medium 5 to 9, High 10 to 16, Very high 17 to 25.</p>
+          <p><button class="btn secondary" id="csv">Download the register (CSV)</button></p>
+          <h3>Not rated in this prototype</h3>
+          <ul id="not-assessed" class="muted"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="tab-communities" role="tabpanel" aria-labelledby="t-communities" hidden>
+    <div class="card">
+      <h2>Exposure by community</h2>
+      <table id="comm-table"></table>
+      <p class="muted">Buildings are counted at their footprint centroid. City Centre is counted once, not again inside Whalley. Canopy is a heat sensitivity indicator, not a heat hazard.</p>
+    </div>
+  </section>
+  <section id="tab-inventory" role="tabpanel" aria-labelledby="t-inventory" hidden>
+    <div class="card">
+      <h2>Climate hazard data inventory</h2>
+      <table id="inv-table"></table>
+    </div>
+  </section>
+  <section id="tab-method" role="tabpanel" aria-labelledby="t-method" hidden>
+    <div class="card" id="method"></div>
+  </section>
+</main>
+<footer>
+  Contains information licensed under the Open Government License - City of Surrey, and under the Open Government Licence - British Columbia. Code: Apache-2.0. ParalleX Labs Inc., Burnaby, BC.
+</footer>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+"""Climate risk register and prioritization matrix from the exposure metrics.
+
+Every rating rule here is a stated default that the assessment team replaces: the
+likelihood of each hazard, the consequence bins for each value area and the 5 x 5
+matrix classes. The page recomputes the register when any of them changes.
+"""
+from __future__ import annotations
+
+HAZARDS = {
+    "flood": {
+        "name": "Riverine and coastal flooding",
+        "layer": "City of Surrey 200-year floodplain (with ground at or below 3 m as a sea-level-rise flag)",
+        "likelihood": 2,
+        "likelihood_note": "The mapped event has a 0.5% chance in any year; sea level rise and heavier rain raise that over time.",
+        "confidence": "High",
+    },
+    "steep": {
+        "name": "Steep slope instability",
+        "layer": "City of Surrey Hazard Lands development permit area (steep slopes and their 10 to 30 m buffer)",
+        "likelihood": 2,
+        "likelihood_note": "Mapped steep ground; heavier rain raises the chance of slope failure.",
+        "confidence": "High",
+    },
+    "wildfire": {
+        "name": "Wildfire at the urban interface",
+        "layer": "BC Wildfire Service PSTA fire threat, moderate or high, within 200 m (public land only; private land is not rated)",
+        "likelihood": 2,
+        "likelihood_note": "Moderate and high provincial threat ratings exist on public land in Grandview, Guildford and South Surrey.",
+        "confidence": "Medium",
+    },
+}
+
+VALUE_AREAS = {
+    "buildings": {"name": "Buildings and property", "unit": "share of the city's buildings", "bins": [0.5, 2, 5, 10]},
+    "emergency": {"name": "Emergency response sites", "unit": "sites", "bins": [0.5, 1, 2, 3],
+                  "kinds": ["fire halls", "emergency services"]},
+    "utilities": {"name": "Drainage and water infrastructure", "unit": "sites", "bins": [0.5, 3, 10, 25],
+                  "kinds": ["drainage pump stations", "water utility facilities"]},
+    "community": {"name": "Schools and community services", "unit": "sites", "bins": [0.5, 2.5, 5.5, 10.5],
+                  "kinds": ["schools", "community-based organizations"]},
+    # flooding and steep ground are the natural state of riparian areas and ravines; only wildfire is rated for them
+    "natural": {"name": "Natural areas", "unit": "hectares of park natural area", "bins": [0.5, 10, 50, 150], "hazards": ["wildfire"]},
+}
+
+NOTES = {
+    ("flood", "utilities"): "Drainage pump stations sit in the floodplain they drain, by design: the rating flags them for a resilience check (power, controls and access during a flood), not as misplaced.",
+}
+
+NOT_ASSESSED = [
+    {"hazard": "Extreme heat", "why": "Needs dissemination-area census data for the people it harms; the page shows tree canopy by community as a sensitivity indicator meanwhile."},
+    {"hazard": "Wildfire smoke", "why": "City-wide; its consequence falls on people, so it waits for the census vulnerability layer."},
+    {"hazard": "Drought and water supply", "why": "No spatial City layer; listed in the data inventory."},
+    {"hazard": "Extreme rainfall and drainage", "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."},
+]
+
+CLASSES = [(4, "Low"), (9, "Medium"), (16, "High"), (25, "Very high")]
+
+
+def consequence(value: float, bins: list[float]) -> int:
+    """1 to 5: one more for each bin edge the value reaches."""
+    return 1 + sum(value >= edge for edge in bins)
+
+
+def risk_class(score: int) -> str:
+    return next(label for top, label in CLASSES if score <= top)
+
+
+def exposure(metrics: dict, hazard: str, area: str) -> tuple[float, dict]:
+    comms = metrics["communities"]
+    if area == "buildings":
+        total = sum(c["buildings"] for c in comms.values())
+        exposed = {n: c[hazard] for n, c in comms.items()}
+        return round(100 * sum(exposed.values()) / total, 2), exposed
+    if area in ("emergency", "utilities", "community"):
+        kinds = VALUE_AREAS[area]["kinds"]
+        hits = [s for s in metrics["services"] if s["kind"] in kinds and s[hazard]]
+        by: dict = {}
+        for s in hits:
+            by[s["community"]] = by.get(s["community"], 0) + 1
+        return float(len(hits)), by
+    if area == "natural":
+        by = {n: c[f"natural_ha_{hazard}"] for n, c in comms.items()}
+        return round(sum(by.values()), 1), by
+    raise ValueError(area)
+
+
+def build(metrics: dict) -> dict:
+    rows = []
+    for hk, h in HAZARDS.items():
+        for ak, a in VALUE_AREAS.items():
+            if hk not in a.get("hazards", HAZARDS):
+                continue
+            value, by_community = exposure(metrics, hk, ak)
+            c = consequence(value, a["bins"])
+            score = h["likelihood"] * c
+            rows.append({
+                "hazard": hk, "hazard_name": h["name"], "value_area": ak, "value_area_name": a["name"],
+                "exposure": value, "unit": a["unit"], "by_community": by_community,
+                "likelihood": h["likelihood"], "consequence": c, "score": score, "class": risk_class(score),
+                "confidence": h["confidence"], "note": NOTES.get((hk, ak), ""),
+            })
+    rows.sort(key=lambda r: (-r["score"], {"High": 0, "Medium": 1, "Low": 2}[r["confidence"]], r["hazard_name"]))
+    for rank, r in enumerate(rows, 1):
+        r["priority"] = rank
+    return {"hazards": HAZARDS, "value_areas": VALUE_AREAS, "classes": CLASSES, "rows": rows, "not_assessed": NOT_ASSESSED}

@@ -1,0 +1,10 @@
+[
+ {
+  "url": "https://openmaps.gov.bc.ca/geo/pub/wfs?service=WFS&version=2.0.0&request=GetFeature&typeName=pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_PSTA_FIRE_THREAT_RTG_SP&outputFormat=application/json&srsName=EPSG:26910&bbox=503149,5427696,523408,5452013,urn:ogc:def:crs:EPSG::26910&count=5000",
+  "fetched_at": "2026-10-27T03:10:46-07:00",
+  "sha256": "5e9425cb72985c299ead17ed6479f59663a5c36a182ecc64419c1909874a6e16",
+  "bytes": 19908813,
+  "layer": "psta_fire_threat",
+  "features": 1489
+ }
+]

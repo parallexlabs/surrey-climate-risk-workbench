@@ -1,0 +1,1613 @@
+[
+ {
+  "file": "boundaries_utm_000.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Surrey%20City%20Boundaries/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "*",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "true",
+   "resultOffset": 0,
+   "resultRecordCount": 2000,
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:13:33-07:00",
+  "bytes": 35957,
+  "sha256": "46593aa01598d7e65b6371a8a63ca3f839a514fdba944f8b8dfa6e2accde4a20"
+ },
+ {
+  "file": "floodplain_utm_000.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Drainage%20200%20Yr%20Flood%20Plain/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "*",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "true",
+   "resultOffset": 0,
+   "resultRecordCount": 2000,
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:13:37-07:00",
+  "bytes": 510228,
+  "sha256": "bc80a52810dcb828e362d43a82db6fe0637eb720df1655290736bffc8d62beb1"
+ },
+ {
+  "file": "steep_utm_000.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Hazard%20Lands%20Development%20Permit%20Area/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "*",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "true",
+   "resultOffset": 0,
+   "resultRecordCount": 2000,
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:01-07:00",
+  "bytes": 42902183,
+  "sha256": "723e9f05619f8c28ecbfb758ced708ea7a143610e5b0b31ef11178473b277e54"
+ },
+ {
+  "file": "dykes_utm_000.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Drainage%20Dyke%20Infrastructure/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "*",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "true",
+   "resultOffset": 0,
+   "resultRecordCount": 2000,
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:38-07:00",
+  "bytes": 160342,
+  "sha256": "9173bc3fe1543e09072815b12c581169a769d861116e0d0fdaaef71939bccc29"
+ },
+ {
+  "file": "buildings_centroids_000.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 0,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:41-07:00",
+  "bytes": 380200,
+  "sha256": "152d7e17300c2991ba61db763a5a9c99d1fabf425c54bfbc19442ed0197488bc"
+ },
+ {
+  "file": "buildings_centroids_001.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 2000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:43-07:00",
+  "bytes": 381211,
+  "sha256": "7e47f68883d2921f7257b7641e029b425cb4e4262e2e5d1178b5b8ea977099bd"
+ },
+ {
+  "file": "buildings_centroids_002.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 4000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:45-07:00",
+  "bytes": 381303,
+  "sha256": "1124d1d2d9aca4494f21a10046780599f0bbe8299b76f58c6a029825bebb525c"
+ },
+ {
+  "file": "buildings_centroids_003.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 6000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:48-07:00",
+  "bytes": 381481,
+  "sha256": "ea18bbfdd98b787556159d47311cae01f33ef6bf776628ec622a4f02930f7fb9"
+ },
+ {
+  "file": "buildings_centroids_004.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 8000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:50-07:00",
+  "bytes": 381221,
+  "sha256": "d3daeeb92eedd29381fe2928d94b366dc7d9dd9fb573457641ee725fd0b51997"
+ },
+ {
+  "file": "buildings_centroids_005.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 10000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:52-07:00",
+  "bytes": 383414,
+  "sha256": "ac6fd6207964ebe9be11900d3fb095cacbb4842f5a623f6336828cd5af8acdc5"
+ },
+ {
+  "file": "buildings_centroids_006.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 12000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:53-07:00",
+  "bytes": 383422,
+  "sha256": "d28a2acb727cb89e5c9ddc914d9f1081b7a41f8e7669f34f857f40092ef8fe17"
+ },
+ {
+  "file": "buildings_centroids_007.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 14000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:55-07:00",
+  "bytes": 383419,
+  "sha256": "f09997a10c5e84aa547df1e8f30b26a2abe5ebbb5d90614acde9e939b3736253"
+ },
+ {
+  "file": "buildings_centroids_008.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 16000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:57-07:00",
+  "bytes": 383482,
+  "sha256": "6843fa0158c4bdc68f07936f6ee78477c7439858360336655bf9d85d275ab0fb"
+ },
+ {
+  "file": "buildings_centroids_009.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 18000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:14:59-07:00",
+  "bytes": 383698,
+  "sha256": "d15663341de984d9820f19018b4af33461a6f3665bfd08ec8f118f314dc6a47e"
+ },
+ {
+  "file": "buildings_centroids_010.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 20000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:01-07:00",
+  "bytes": 383184,
+  "sha256": "1476129f9fe149ea6c08ec4a0bf74ad8175d5f0b4590b27486a5642c6ce95b07"
+ },
+ {
+  "file": "buildings_centroids_011.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 22000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:03-07:00",
+  "bytes": 383401,
+  "sha256": "a3699a68bbc7218030ceb6e30441ee5d877894a18c9c8d04af34459cbfd8d346"
+ },
+ {
+  "file": "buildings_centroids_012.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 24000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:05-07:00",
+  "bytes": 383530,
+  "sha256": "7d53d44c33fb1c467b7e259c4472526b0371c340284f0dddd3b0cee704aaa54e"
+ },
+ {
+  "file": "buildings_centroids_013.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 26000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:07-07:00",
+  "bytes": 383349,
+  "sha256": "3f95c5fc5773e4b39576050e39e110a0cc9c8b8cc46bfb48158b2f9a60254a27"
+ },
+ {
+  "file": "buildings_centroids_014.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 28000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:09-07:00",
+  "bytes": 383194,
+  "sha256": "d21a7fde098add9b2eb9f992b8bb56c7d3bce93c4d672a7a41385980a845125e"
+ },
+ {
+  "file": "buildings_centroids_015.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 30000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:11-07:00",
+  "bytes": 383393,
+  "sha256": "ce2031cd0bf499fe33e513447721ac239eb0ef3ee98dfc85e6877e9edc8f5bcc"
+ },
+ {
+  "file": "buildings_centroids_016.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 32000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:13-07:00",
+  "bytes": 383368,
+  "sha256": "50c6a0d7fb8104059d39cb5090b6a4fd908d9259dea0ff5fe3c099334d03c061"
+ },
+ {
+  "file": "buildings_centroids_017.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 34000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:15-07:00",
+  "bytes": 383325,
+  "sha256": "f7021b78403c17654b1ed00cfd7be48444bb852a79a5538b8f4ff5c5eb0c7932"
+ },
+ {
+  "file": "buildings_centroids_018.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 36000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:17-07:00",
+  "bytes": 383353,
+  "sha256": "3c79fa93c97408af37676b55d8aca83cac511a57cfe09cde76c9a96169e98711"
+ },
+ {
+  "file": "buildings_centroids_019.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 38000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:19-07:00",
+  "bytes": 383496,
+  "sha256": "27ecbc307bcdffbd36689c0a56ca248be33ba9397fa4b5d11862ea6c7915ed97"
+ },
+ {
+  "file": "buildings_centroids_020.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 40000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:21-07:00",
+  "bytes": 383441,
+  "sha256": "b481715d98691b167f106718cde2da21dc98058b3366c571c623dc7155f8c721"
+ },
+ {
+  "file": "buildings_centroids_021.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 42000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:24-07:00",
+  "bytes": 383455,
+  "sha256": "89f902c782205bbb9f2df352b5c6f1a9cee3aab5ada45902a390d9b30d0308f0"
+ },
+ {
+  "file": "buildings_centroids_022.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 44000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:26-07:00",
+  "bytes": 383416,
+  "sha256": "d1a91a1233d23c5f1cf2ed49b2cb494d9bccfbd11068cc282fba486ce6e34ef3"
+ },
+ {
+  "file": "buildings_centroids_023.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 46000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:30-07:00",
+  "bytes": 383378,
+  "sha256": "02531ac808ac6733bfd20855f1ced0eb445e71c2291596ea603b96658070be72"
+ },
+ {
+  "file": "buildings_centroids_024.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 48000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:32-07:00",
+  "bytes": 383535,
+  "sha256": "3e5cbd4d3f0f4f2eba61532fcce89d0135a4facba74fabea845c3d54359b8564"
+ },
+ {
+  "file": "buildings_centroids_025.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 50000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:34-07:00",
+  "bytes": 383470,
+  "sha256": "8e4bdf333c749b8395f8e269483490fbf5839f3e9588814a803111537c4de7a7"
+ },
+ {
+  "file": "buildings_centroids_026.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 52000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:36-07:00",
+  "bytes": 383347,
+  "sha256": "12cf4cba97f1c65e12fc26ad3cea201f50d90a81b0b2f2ce5ac8cb6abaa7a4ba"
+ },
+ {
+  "file": "buildings_centroids_027.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 54000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:38-07:00",
+  "bytes": 383332,
+  "sha256": "e493480ad8585217ecc8c7dd6092a975c85ba89a6af9ee076cc3d2f219646f6f"
+ },
+ {
+  "file": "buildings_centroids_028.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 56000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:41-07:00",
+  "bytes": 383268,
+  "sha256": "c9dabb429930dc80313c00c2b6d269ae56cc27b2088a54020b54f1f56df0cd4f"
+ },
+ {
+  "file": "buildings_centroids_029.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 58000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:43-07:00",
+  "bytes": 383421,
+  "sha256": "33d426c76b243a47f7df895570171dac53800a393a8caf93efddff4dd9099c6b"
+ },
+ {
+  "file": "buildings_centroids_030.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 60000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:45-07:00",
+  "bytes": 383178,
+  "sha256": "bfe90b6ae8214caf0b98289e5c242539e05e7bf6aeabe91d00d2a0ecfb08af5c"
+ },
+ {
+  "file": "buildings_centroids_031.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 62000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:48-07:00",
+  "bytes": 383088,
+  "sha256": "9d0872facc9362886764cb109c49a098c22f331c9ca252bd05ef1c86b847b7ab"
+ },
+ {
+  "file": "buildings_centroids_032.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 64000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:50-07:00",
+  "bytes": 383269,
+  "sha256": "6185d900782eeb7bfda5473e90c28c6e043b41a41d5e8f654c140b24fe18b574"
+ },
+ {
+  "file": "buildings_centroids_033.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 66000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:52-07:00",
+  "bytes": 383335,
+  "sha256": "a07e14149c7f49bfeca1d563f47c85f5553653f5cfe69fc18fbbcbb11e7266c7"
+ },
+ {
+  "file": "buildings_centroids_034.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 68000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:56-07:00",
+  "bytes": 383182,
+  "sha256": "54d43b6c6d9057a086afb884ba6400dddc282669ff60cf781e59fcdbed1f50ec"
+ },
+ {
+  "file": "buildings_centroids_035.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 70000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:15:58-07:00",
+  "bytes": 383506,
+  "sha256": "8f2542abca93e11426a40bec7e7f9f6db33fad087c2c9c3bc91b8b78781ee763"
+ },
+ {
+  "file": "buildings_centroids_036.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 72000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:00-07:00",
+  "bytes": 383360,
+  "sha256": "e029e8ba3a0535d2f1cbb8428a6510c7754b86384188f074fd1a0b8fef5c3fb0"
+ },
+ {
+  "file": "buildings_centroids_037.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 74000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:03-07:00",
+  "bytes": 383397,
+  "sha256": "c44f42a88131f2d377e070859b4a9c50cb470437eacaa37786c15439b778ec15"
+ },
+ {
+  "file": "buildings_centroids_038.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 76000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:07-07:00",
+  "bytes": 383329,
+  "sha256": "d0e9276883998b65d108abd0ec9b6791f27c34bd0533284f09365ffa3ca38197"
+ },
+ {
+  "file": "buildings_centroids_039.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 78000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:09-07:00",
+  "bytes": 383462,
+  "sha256": "1817663df72f56b365859a779736f27d0e9e91e8d0d22f2965f90d4ffb420c9f"
+ },
+ {
+  "file": "buildings_centroids_040.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 80000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:11-07:00",
+  "bytes": 383359,
+  "sha256": "7ca8c9e4be1ee11d133f2d1794e8b5c51ed19ebbdd08c64868e4f73126286a87"
+ },
+ {
+  "file": "buildings_centroids_041.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 82000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:14-07:00",
+  "bytes": 383369,
+  "sha256": "449bde74e87e0db710c9270f973d8e1419202338286d4459e81e271daaab6ff6"
+ },
+ {
+  "file": "buildings_centroids_042.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 84000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:16-07:00",
+  "bytes": 383304,
+  "sha256": "8de1320abd1d9cd850d836dd6eef73c79d32a1a96a46d20e21f761358c782cd4"
+ },
+ {
+  "file": "buildings_centroids_043.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 86000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:19-07:00",
+  "bytes": 383353,
+  "sha256": "8c99b72a636e91e0470a8f5dc064475e1803c7138e86d683be956d7b8c0ba8f0"
+ },
+ {
+  "file": "buildings_centroids_044.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 88000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:21-07:00",
+  "bytes": 383222,
+  "sha256": "5fe06328fb817f1ec2e46464259100adab1c05665ce49136c22a113252a841b1"
+ },
+ {
+  "file": "buildings_centroids_045.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 90000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:24-07:00",
+  "bytes": 383233,
+  "sha256": "b488fa1ff8b505b3a316cffd0069dee07e6028b8baeef17cc8a293ecfff4dd88"
+ },
+ {
+  "file": "buildings_centroids_046.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 92000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:27-07:00",
+  "bytes": 383338,
+  "sha256": "8cb0e471ea2ea7917326d036e50164ddd9557a6bfc0cd3900b7254296b79074b"
+ },
+ {
+  "file": "buildings_centroids_047.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 94000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:32-07:00",
+  "bytes": 383281,
+  "sha256": "6524abbdeb0a652d78ca78967820d033cfc5d14d2e72add678f3307bed6fd190"
+ },
+ {
+  "file": "buildings_centroids_048.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 96000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:34-07:00",
+  "bytes": 383231,
+  "sha256": "2027112f3de1a0f505217450a44467612be2133e984f45368c3b8e724f4008d7"
+ },
+ {
+  "file": "buildings_centroids_049.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 98000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:37-07:00",
+  "bytes": 383340,
+  "sha256": "bb6f72c0272ef3c5bc57a9960d1e0361e1efcc8dd44f5b001f09eafbfcbd9e0a"
+ },
+ {
+  "file": "buildings_centroids_050.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 100000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:39-07:00",
+  "bytes": 385311,
+  "sha256": "03a5ac8576dde96f0843b26f117e8ad3f3d8f5a09530d234c6bf773857445876"
+ },
+ {
+  "file": "buildings_centroids_051.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 102000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:41-07:00",
+  "bytes": 385318,
+  "sha256": "8b1581f8c27ce9f7329b6a0760354b55bb85a78221f35ece7d804acd94e4f397"
+ },
+ {
+  "file": "buildings_centroids_052.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 104000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:44-07:00",
+  "bytes": 385098,
+  "sha256": "bf71d369a298738bd9bac24b67b2a9fc7a855d7eedd31cdee56c9418c4ba69d8"
+ },
+ {
+  "file": "buildings_centroids_053.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 106000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:47-07:00",
+  "bytes": 385302,
+  "sha256": "e2a04e07e3fd34f091f5a5bd88a177ea7e736347c2b2377a0e4a3e18a57f9b1e"
+ },
+ {
+  "file": "buildings_centroids_054.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 108000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:50-07:00",
+  "bytes": 385265,
+  "sha256": "4b4070b146d23e3ca988fa9f9e8bed3638a35dedb0136c15b0e80d628be52430"
+ },
+ {
+  "file": "buildings_centroids_055.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 110000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:52-07:00",
+  "bytes": 385232,
+  "sha256": "45b0d116fe41c238a61c2a03b19680fa792c2f89b1f126122bbef7b23afe30eb"
+ },
+ {
+  "file": "buildings_centroids_056.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 112000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:55-07:00",
+  "bytes": 385463,
+  "sha256": "1dc924f806e1b94a6fdc2aa696d25c69f76a1382edddd6275d173fdc3941348a"
+ },
+ {
+  "file": "buildings_centroids_057.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 114000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:16:57-07:00",
+  "bytes": 385350,
+  "sha256": "bd42173bdda9ed63794dda1e16ce840c484d529fcedf5add3ef8ad4ff412c6ef"
+ },
+ {
+  "file": "buildings_centroids_058.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 116000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:00-07:00",
+  "bytes": 385349,
+  "sha256": "57415283065ea7721dc8bf6a4353b59bfea0527305272f8d8f217b6f593e7a13"
+ },
+ {
+  "file": "buildings_centroids_059.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 118000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:02-07:00",
+  "bytes": 385276,
+  "sha256": "d0f7b198b9b529de7035afff087246b669d94d0be69f50b7a3e8d7776701b80a"
+ },
+ {
+  "file": "buildings_centroids_060.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 120000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:06-07:00",
+  "bytes": 385452,
+  "sha256": "2a4c6f6b832f94199212c0bd510f92b69ec36e80821664ffad2bda5ea753551e"
+ },
+ {
+  "file": "buildings_centroids_061.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 122000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:10-07:00",
+  "bytes": 385418,
+  "sha256": "0d13e254f29ea0bc131defb348aec1314c9842917f8df3b36f9e4fb22c30c715"
+ },
+ {
+  "file": "buildings_centroids_062.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 124000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:12-07:00",
+  "bytes": 385226,
+  "sha256": "25680c25fcb93302399cbc90a26ee10b4b5940d8d824997d5298ff9733d1c12e"
+ },
+ {
+  "file": "buildings_centroids_063.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 126000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:15-07:00",
+  "bytes": 385299,
+  "sha256": "38ed2871a96a5116eee17101d5f0f99f78ecc6ff4d3e14c2d12c6a73a73da7bf"
+ },
+ {
+  "file": "buildings_centroids_064.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 128000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:18-07:00",
+  "bytes": 385260,
+  "sha256": "e74ae0bd7f29bd9b413fd8deacd0cba7bef0b8447c7951846d2e95a15140969c"
+ },
+ {
+  "file": "buildings_centroids_065.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 130000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:20-07:00",
+  "bytes": 385293,
+  "sha256": "f14fd7fc1eb7e90f72288278eca47d5dbbc080169b54011d3f42bd4f7a2f68ff"
+ },
+ {
+  "file": "buildings_centroids_066.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 132000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:23-07:00",
+  "bytes": 387093,
+  "sha256": "d5c885f5b0f50f8a2a29f37f449bfe39100495f81972c94b1c0700d35e247165"
+ },
+ {
+  "file": "buildings_centroids_067.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 134000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:29-07:00",
+  "bytes": 388836,
+  "sha256": "c246e17b0328a1feec76f05a88390558632e451ce1d00eb2199dd5f00ee68827"
+ },
+ {
+  "file": "buildings_centroids_068.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "outFields": "OBJECTID,CIVIC_FACILITY,GROUND_ELEVATION,SHAPE__Area,STATUS",
+   "outSR": 26910,
+   "orderByFields": "OBJECTID",
+   "returnGeometry": "false",
+   "resultOffset": 136000,
+   "resultRecordCount": 2000,
+   "f": "json",
+   "returnCentroid": "true"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T04:17:32-07:00",
+  "bytes": 320926,
+  "sha256": "807be88cf96d2c3ef2d69b0445ff4ed36cad9cee7be8809ac4d57a8732380026"
+ },
+ {
+  "file": "canopy_grandview.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:17:45-07:00",
+  "bytes": 1553,
+  "sha256": "5ba799647bb423d6b0a6debbfa0940e8960fa7ea46426947433dc9f209275239"
+ },
+ {
+  "file": "canopy_clayton.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:17:55-07:00",
+  "bytes": 1555,
+  "sha256": "dd97e3745733223f4582df24f77def8b07345d60f909210778cb51657e7f76a6"
+ },
+ {
+  "file": "canopy_cloverdale.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:18:02-07:00",
+  "bytes": 1554,
+  "sha256": "d0afb0ef051fa5570fccb725a5b1e6487a2ea5dab8157b0afdff7478cb170fec"
+ },
+ {
+  "file": "canopy_south_surrey.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:18:17-07:00",
+  "bytes": 1555,
+  "sha256": "ecd34aeb0d6f58ec8db7e82896d6297ae7f6143d7717dedc662441a095f79178"
+ },
+ {
+  "file": "canopy_city_centre.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:18:23-07:00",
+  "bytes": 1555,
+  "sha256": "9815a915e83e0bd1ad5d8732c8a13d11d63b37999ff9d827fb7cce3a3e899b2c"
+ },
+ {
+  "file": "canopy_fleetwood.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:18:35-07:00",
+  "bytes": 1555,
+  "sha256": "879e3a051b334c16f5c1ed842e242917793d06f2068db93aa5a6041de6357200"
+ },
+ {
+  "file": "canopy_guildford.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:18:51-07:00",
+  "bytes": 1555,
+  "sha256": "06648ebc7038a7d2a7c9940e36fe4e7179515dd3b514c58808b62c58c2581fa1"
+ },
+ {
+  "file": "canopy_whalley.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:19:05-07:00",
+  "bytes": 1555,
+  "sha256": "223bc47bbe3e1f0f98fbb8663320900f33943e1f808cd12ae3596833b85780e4"
+ },
+ {
+  "file": "canopy_newton.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/0/query",
+  "params": {
+   "where": "1=1",
+   "geometryType": "esriGeometryPolygon",
+   "inSR": 26910,
+   "spatialRel": "esriSpatialRelIntersects",
+   "outStatistics": "[{\"statisticType\": \"count\", \"onStatisticField\": \"OBJECTID\", \"outStatisticFieldName\": \"n\"}, {\"statisticType\": \"sum\", \"onStatisticField\": \"SHAPE__Area\", \"outStatisticFieldName\": \"total\"}]",
+   "f": "json"
+  },
+  "geometry_filter": true,
+  "fetched_at": "2026-10-17T04:19:26-07:00",
+  "bytes": 1556,
+  "sha256": "05e58072d05de43ee6889408531626376436c11db16bf7e778504de74611280a"
+ },
+ {
+  "file": "iteminfo_boundaries.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Surrey%20City%20Boundaries/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:11-07:00",
+  "bytes": 1103,
+  "sha256": "7b72a7fb2af996a93ccd8ed9fa69773742e4fdcebd48c9c4d5f531075046cd9c",
+  "layer": "Surrey City Boundaries",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: GIS Section, GIS@surrey.ca | Update frequency: Monthly"
+ },
+ {
+  "file": "iteminfo_floodplain.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Drainage%20200%20Yr%20Flood%20Plain/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:12-07:00",
+  "bytes": 1418,
+  "sha256": "5bb409ad90e6ac4781f43c177b4ae14bf06df16dd9954bd4126a6bfb7edca84b",
+  "layer": "Drainage 200 Yr Flood Plain",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: GIS Section, GIS@surrey.ca | Update frequency: Monthly"
+ },
+ {
+  "file": "iteminfo_steep.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Hazard%20Lands%20Development%20Permit%20Area/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:14-07:00",
+  "bytes": 1636,
+  "sha256": "5b169fb5c52d888ce067fd4aaf8505569c7866e05aea633f851e41d015e6af58",
+  "layer": "Hazard Lands Development Permit Area",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: Planning and Development Department, planningdevelopment@surrey.ca | Update frequency: Monthly"
+ },
+ {
+  "file": "iteminfo_dykes.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Drainage%20Dyke%20Infrastructure/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:15-07:00",
+  "bytes": 1019,
+  "sha256": "f5b98bcaf6a1351253d92fd55f162841b62de4a51aa7cd9ed11d2a6fd69543de",
+  "layer": "Drainage Dyke Infrastructure",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: GIS Section, GIS@surrey.ca | Update frequency: Monthly"
+ },
+ {
+  "file": "iteminfo_buildings.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Building%20Footprnts/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:17-07:00",
+  "bytes": 1070,
+  "sha256": "73d9e6e164abb727a32ceec29f810e7aee3287618dfb60fab3d285637265e2f9",
+  "layer": "Building Footprnts",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: Planning and Development Department, planningdevelopment@surrey.ca | Update frequency: Monthly"
+ },
+ {
+  "file": "iteminfo_canopy.json",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Tree%20Canopy/FeatureServer/info/iteminfo",
+  "params": {
+   "f": "json"
+  },
+  "geometry_filter": false,
+  "fetched_at": "2026-10-17T08:23:18-07:00",
+  "bytes": 3443,
+  "sha256": "c69ef4e395af87d4ef3fb726ff80850f3d340aef5958141ca8193b37cf734aef",
+  "layer": "Tree Canopy",
+  "item_licence": "",
+  "item_credits": "City of Surrey | Contact: Urban Forestry, urbanforestry@surrey.ca | Update frequency: Variable"
+ }
+]

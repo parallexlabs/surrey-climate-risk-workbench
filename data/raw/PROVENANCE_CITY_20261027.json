@@ -1,0 +1,95 @@
+[
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:16-07:00",
+  "sha256": "d0e4936249c42c2bfd7aebc07633a25c4e7ed4af3e358d82f4fc2de0f6cd18bc",
+  "bytes": 5540,
+  "layer": "community_organizations",
+  "features": 24
+ },
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:15-07:00",
+  "sha256": "a582bd3ebc41b0a58749b4d9d6edcc0f3c905c88a428dac6ba33c262c2cc610c",
+  "bytes": 4727,
+  "layer": "emergency_services",
+  "features": 23
+ },
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:13-07:00",
+  "sha256": "e510f67135c375cd72903063128605e783a88645e4e503c45b5ad428db43831a",
+  "bytes": 6408,
+  "layer": "firehalls",
+  "features": 16
+ },
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:18-07:00",
+  "sha256": "3c2a046ce1ecbdfa070baa8fb5f6016d4506c30b3914ed3c7e9cf014b3f7dcc3",
+  "bytes": 15090,
+  "layer": "pump_stations",
+  "features": 41
+ },
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:11-07:00",
+  "sha256": "1fc26fc342f66bb3577c630dd9d2dd1eb66421c8c86aa9eaaf72d767494d6e45",
+  "bytes": 346522,
+  "layer": "schools",
+  "features": 180
+ },
+ {
+  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "fetched_at": "2026-10-27T03:07:20-07:00",
+  "sha256": "15c01576f041901fc899fc6512f37d7da9ff7315734ccc18dc20a9600a765b9f",
+  "bytes": 19354,
+  "layer": "water_facilities",
+  "features": 35
+ },
+ {
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Coastal_Flood_Adaptation_Strategy_Boundary/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=100&orderByFields=OBJECTID&maxAllowableOffset=1",
+  "fetched_at": "2026-10-27T03:09:55-07:00",
+  "sha256": "741f504c56a7108847bbba5d996481e6b8f6166065f876c9f23cbe0fbd3a5305",
+  "bytes": 58702,
+  "layer": "cfas_boundary",
+  "service": "Coastal_Flood_Adaptation_Strategy_Boundary",
+  "features": 1
+ },
+ {
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Park%20Natural%20Areas/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=200&orderByFields=OBJECTID&maxAllowableOffset=1",
+  "fetched_at": "2026-10-27T03:09:58-07:00",
+  "sha256": "d6b747b831cbf821fa53e8da94cf9ed95714e8e41d9e0f119c63e70704f04b37",
+  "bytes": 355726,
+  "layer": "natural_areas",
+  "service": "Park Natural Areas",
+  "features": 200
+ },
+ {
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Park%20Natural%20Areas/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=200&resultRecordCount=200&orderByFields=OBJECTID&maxAllowableOffset=1",
+  "fetched_at": "2026-10-27T03:10:00-07:00",
+  "sha256": "a5541d01aa58834e29f9c33d57306c99855e506e02045f624baea332faa7d728",
+  "bytes": 322135,
+  "layer": "natural_areas",
+  "service": "Park Natural Areas",
+  "features": 200
+ },
+ {
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Park%20Natural%20Areas/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=400&resultRecordCount=200&orderByFields=OBJECTID&maxAllowableOffset=1",
+  "fetched_at": "2026-10-27T03:10:02-07:00",
+  "sha256": "cc02d5cfec7596cd4d192c0c7825a3fc8dacdebcedf922882233bd71d7ca9aa4",
+  "bytes": 485764,
+  "layer": "natural_areas",
+  "service": "Park Natural Areas",
+  "features": 200
+ },
+ {
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Park%20Natural%20Areas/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=600&resultRecordCount=200&orderByFields=OBJECTID&maxAllowableOffset=1",
+  "fetched_at": "2026-10-27T03:10:04-07:00",
+  "sha256": "1acbbc5b749fcdb0106c1cc0ac59f057fee545359201acc9d22420d3ccf916ff",
+  "bytes": 153595,
+  "layer": "natural_areas",
+  "service": "Park Natural Areas",
+  "features": 73
+ }
+]
