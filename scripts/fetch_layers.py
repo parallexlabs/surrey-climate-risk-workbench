@@ -1,8 +1,9 @@
 """Fetch the public layers this workbench uses: the City of Surrey's open data and the provincial fire threat rating.
 
 One request a second, with a plain user agent that names this project. Before the first request to a host the
-script reads that host's robots.txt and obeys it; a host that serves no robots file (an error instead of a file)
-is read on the same one-a-second terms. Each saved page gets a provenance record: URL, fetch time and SHA-256.
+script reads that host's robots.txt and obeys it, as RFC 9309 says: a 4xx answer means the host sets no rules,
+while a 5xx answer or an unreachable host means the script fetches nothing from it. Each saved page gets a
+provenance record: URL, fetch time and SHA-256.
 
     python3 scripts/fetch_layers.py data/raw                  # every layer
     python3 scripts/fetch_layers.py data/raw schools pump_stations
@@ -41,7 +42,7 @@ PSTA = ("https://openmaps.gov.bc.ca/geo/pub/wfs?service=WFS&version=2.0.0&reques
         "&typeName=pub:WHSE_LAND_AND_NATURAL_RESOURCE.PROT_PSTA_FIRE_THREAT_RTG_SP&outputFormat=application/json"
         f"&srsName=EPSG:26910&bbox={SURREY_BOX},urn:ogc:def:crs:EPSG::26910&count=5000")
 
-_robots: dict[str, urllib.robotparser.RobotFileParser | None] = {}
+_robots: dict = {}
 _last = 0.0
 
 
@@ -58,23 +59,42 @@ def _get(url: str) -> bytes:
         _last = time.monotonic()
 
 
+class RobotsUnavailable(Exception):
+    """The host's robots.txt could not be read (5xx or unreachable): RFC 9309 says assume complete disallow."""
+
+
+def robots_rules(host: str):
+    """The host's robots rules; None when it answers 4xx (no rules); raises RobotsUnavailable on 5xx or no answer."""
+    try:
+        body = _get(host + "/robots.txt")
+    except urllib.error.HTTPError as err:
+        if 400 <= err.code < 500:
+            return None
+        raise RobotsUnavailable(f"{host}/robots.txt answered {err.code}") from err
+    except urllib.error.URLError as err:
+        raise RobotsUnavailable(f"{host}/robots.txt unreachable: {err.reason}") from err
+    rp = urllib.robotparser.RobotFileParser()
+    rp.parse(body.decode("utf-8", "replace").splitlines())
+    return rp
+
+
 def allowed(url: str) -> bool:
     parts = urllib.parse.urlsplit(url)
     host = f"{parts.scheme}://{parts.netloc}"
     if host not in _robots:
         try:
-            rp = urllib.robotparser.RobotFileParser()
-            rp.parse(_get(host + "/robots.txt").decode("utf-8", "replace").splitlines())
-            _robots[host] = rp
-        except (urllib.error.HTTPError, urllib.error.URLError):
-            _robots[host] = None          # no robots file served: no rules to obey
+            _robots[host] = robots_rules(host)
+        except RobotsUnavailable:
+            _robots[host] = False
     rp = _robots[host]
+    if rp is False:
+        return False
     return rp is None or rp.can_fetch(USER_AGENT, url)
 
 
 def save(url: str, out: Path) -> dict:
     if not allowed(url):
-        raise SystemExit(f"robots.txt disallows {url}")
+        raise SystemExit(f"robots.txt disallows {url}, or it could not be read (5xx or unreachable)")
     body = _get(url)
     out.write_bytes(body)
     return {"url": url, "fetched_at": datetime.now().astimezone().isoformat(timespec="seconds"),
