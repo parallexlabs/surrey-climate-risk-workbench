@@ -53,6 +53,14 @@
   L.city.forEach(function (r) { var cp = document.createElementNS(SVGNS, "path"); cp.setAttribute("d", pathOf(r)); cp.setAttribute("clip-rule", "evenodd"); clip.appendChild(cp); });
   defs.appendChild(clip); svg.insertBefore(defs, svg.firstChild);
   function clipped(id) { var g = group(id); g.setAttribute("clip-path", "url(#cityclip)"); return g; }
+  var QCOL = ["#f2f0f7", "#cbc9e2", "#9e9ac8", "#756bb1", "#54278f"];
+  var DAS = D.metrics.dissemination_areas || {};
+  var gDas = group("das");
+  (L.das || []).forEach(function (d) {
+    var q = (DAS[d.id] || {}).quintile;
+    poly(gDas, d.rings, q ? QCOL[q - 1] : "#eeeeee", "#ffffff", 0.9, 8);
+  });
+  gDas.style.display = "none";
   var gNatural = clipped("natural"); L.natural.forEach(function (r) { poly(gNatural, r, C("--natural"), "none", 0.45); });
   var gFlood = clipped("flood"); L.floodplain.forEach(function (r) { poly(gFlood, r, C("--flood"), "none", 0.5); });
   var gSteep = clipped("steep"); L.steep.forEach(function (r) { poly(gSteep, r, C("--steep"), "none", 0.55); });
@@ -99,19 +107,25 @@
   var TOGGLES = [
     ["flood", "200-year floodplain", C("--flood")], ["steep", "Steep slope hazard lands", C("--steep")],
     ["fire", "Wildfire threat, moderate or high (public land)", C("--fire")], ["natural", "Park natural areas", C("--natural")],
-    ["services", "Service sites", "#5b4a8a"], ["dykes", "Dyke records", "#22313a"], ["communities", "Communities", "#33424b"]
+    ["services", "Service sites", "#5b4a8a"], ["dykes", "Dyke records", "#22313a"], ["communities", "Communities", "#33424b"],
+    ["das", "Vulnerability by dissemination area (2021 Census)", "#756bb1", true]
   ];
   TOGGLES.forEach(function (t) {
-    var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", "true");
+    var b = document.createElement("button"); b.type = "button"; b.setAttribute("aria-pressed", t[3] ? "false" : "true");
     var sw = document.createElement("span"); sw.className = "swatch"; sw.style.background = t[2];
     b.appendChild(sw); b.appendChild(document.createTextNode(t[1]));
     b.addEventListener("click", function () {
       var on = b.getAttribute("aria-pressed") !== "true";
       b.setAttribute("aria-pressed", on ? "true" : "false");
       $("g-" + t[0]).style.display = on ? "" : "none";
+      if (t[0] === "das") $("q-legend").hidden = !on;
     });
     $("toggles").appendChild(b);
   });
+  var leg = document.createElement("div"); leg.id = "q-legend"; leg.className = "q-legend"; leg.hidden = true;
+  leg.appendChild(document.createTextNode("Vulnerability index quintile: "));
+  QCOL.forEach(function (c, i) { var sw = document.createElement("span"); sw.className = "swatch"; sw.style.background = c; leg.appendChild(sw); leg.appendChild(document.createTextNode(" " + (i + 1) + (i === 0 ? " least " : i === 4 ? " most " : " "))); });
+  $("toggles").parentNode.insertBefore(leg, $("toggles").nextSibling);
 
   /* ---------- screening ---------- */
   function inRings(x, y, rings) {
@@ -167,6 +181,13 @@
     out += row(fireD <= D.metrics.parameters.wildfire_near_m ? Y : N0, "Within " + D.metrics.parameters.wildfire_near_m + " m of moderate or high provincial wildfire threat (public land only; nearest " + (isFinite(fireD) ? fmt(fireD) + " m" : "none") + ").");
     out += row(natD <= D.metrics.parameters.interface_near_m ? Y : N0, "Within " + D.metrics.parameters.interface_near_m + " m of a park natural area (nearest " + fmt(natD) + " m): interface vegetation and ember exposure.");
     out += row(["ask", fmt(hallD) + " m"], "Straight-line distance to the nearest fire hall.");
+    var da = (L.das || []).filter(function (d) { return inRings(sx, sy, d.rings); })[0];
+    var dv = da ? DAS[da.id] : null;
+    if (dv && dv.quintile) {
+      var pc = function (k) { return dv[k] === undefined ? "n/a" : fmt(100 * dv[k], 0) + "%"; };
+      out += row([dv.quintile >= 4 ? "yes" : "no", "Q" + dv.quintile], "Dissemination area " + da.id + " (" + fmt(dv.population) + " residents) is in vulnerability quintile " + dv.quintile + " of 5: 65 and over " + pc("age_65_plus") +
+        ", low income " + pc("low_income") + ", one-person households " + pc("one_person") + ", renters " + pc("renter") + ", no English or French " + pc("no_official_language") + ".");
+    }
     out += row(A, "Will the asset still be in service after 2050, when the hazards above are larger?");
     out += row(A, "Does it serve or house people more sensitive to heat, smoke or flooding (older adults, young children, people living alone)?");
     out += row(A, "Is it needed during or right after an emergency?");
@@ -240,11 +261,12 @@
 
   /* ---------- communities ---------- */
   var M = D.metrics.communities;
-  var ch = '<thead><tr><th>Community</th><th class="num">Buildings</th><th class="num">200-year floodplain</th><th class="num">Ground at or below 3 m</th><th class="num">Steep slope</th><th class="num">Near wildfire threat</th><th class="num">Near natural areas</th><th class="num">Service sites in floodplain</th><th class="num">Tree canopy</th></tr></thead><tbody>';
+  var ch = '<thead><tr><th>Community</th><th class="num">Residents</th><th class="num">Residents in floodplain (est.)</th><th class="num">Buildings</th><th class="num">200-year floodplain</th><th class="num">Ground at or below 3 m</th><th class="num">Steep slope</th><th class="num">Near wildfire threat</th><th class="num">Near natural areas</th><th class="num">Service sites in floodplain</th><th class="num">Tree canopy</th></tr></thead><tbody>';
   Object.keys(M).sort(function (a, b) { return M[b].flood / M[b].buildings - M[a].flood / M[a].buildings; }).forEach(function (n) {
     var c = M[n], b = c.buildings || 1, pct = function (k) { return fmt(100 * c[k] / b, 1) + "%"; };
     var sites = D.services.filter(function (s) { return s.community === n && s.flood; }).length;
-    ch += "<tr><td>" + title(n) + '</td><td class="num">' + fmt(c.buildings) + '</td><td class="num">' + pct("flood") + '</td><td class="num">' + pct("low") +
+    var pf = ((D.metrics.people_exposed || {}).flood || {})[n] || 0;
+    ch += "<tr><td>" + title(n) + '</td><td class="num">' + fmt(c.residents || 0) + '</td><td class="num">' + fmt(pf) + '</td><td class="num">' + fmt(c.buildings) + '</td><td class="num">' + pct("flood") + '</td><td class="num">' + pct("low") +
       '</td><td class="num">' + pct("steep") + '</td><td class="num">' + pct("wildfire") + '</td><td class="num">' + pct("interface") + '</td><td class="num">' + sites +
       '</td><td class="num">' + (c.canopy_pct === null ? "n/a" : fmt(c.canopy_pct, 1) + "%") + "</td></tr>";
   });
@@ -267,6 +289,7 @@
     " m grid, the distance to moderate or high provincial wildfire threat (" + P.wildfire_near_m + " m) and to park natural areas (" + P.interface_near_m +
     " m). Service sites and natural areas get the same tests. Ground at or below " + P.low_ground_m + " m uses the City's published building ground elevation, datum as published.</p>" +
     "<h3>How the register is rated</h3><p>Score = likelihood × consequence on a 5 by 5 matrix. Consequence comes from measured exposure through stated bins (buildings: share of the city's buildings; services: number of sites; natural areas: hectares). Likelihood is a stated default per hazard that the assessment team sets with the City, under its chosen time horizons and climate scenarios. Confidence reflects the source: High for the City's mapped layers, Medium where the provincial wildfire layer leaves private land unrated.</p>" +
-    "<h3>What it is not</h3><p>It models no flood depth, no damage, no probability under future climate and no social vulnerability yet. People enter in the next pass, through dissemination-area census data and, during an assessment, the City's own Social Vulnerability Index. The wildfire layer does not rate private land, so private-land interface exposure is not measured. It is a prototype built from public data; it is not the City's assessment and is not endorsed by the City.</p>" +
+    "<h3>People and vulnerability</h3><p>Residents come from the 2021 Census by dissemination area (666 areas, 568,322 residents; the Semiahmoo First Nation reserve, an enclave inside the City's boundary but not part of the City, is left out). Residents exposed to a hazard are estimated as each area's population times its share of buildings in the hazard area. The vulnerability index averages seven standardized indicators: age 65 and over, age 0 to 4, low income (LIM-AT), one-person households, renter households, no knowledge of English or French, and recent immigrants. It is a public reconstruction; in an assessment the City's own Social Vulnerability Index takes its place.</p>" +
+    "<h3>What it is not</h3><p>It models no flood depth, no damage and no probability under future climate. The wildfire layer does not rate private land, so private-land interface exposure is not measured. It is a prototype built from public data; it is not the City's assessment and is not endorsed by the City.</p>" +
     "<h3>Reproduce it</h3><p>Every input page is saved with its address, retrieval time and SHA-256; one script rebuilds every figure on this page from those inputs.</p>";
 })();

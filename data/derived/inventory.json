@@ -124,12 +124,12 @@
   "source": "2021 Census, dissemination-area profile and boundaries",
   "provider": "Statistics Canada",
   "licence": "Statistics Canada Open Licence",
-  "form": "about 700 dissemination areas in Surrey [CONFIRM]",
-  "retrieved": "planned",
+  "form": "666 dissemination areas, 568,322 residents (the Semiahmoo First Nation reserve, an enclave, excluded)",
+  "retrieved": "2026-10-27",
   "hazards": "people",
-  "status": "planned",
-  "use": "Vulnerability by dissemination area (age, income, language, housing, living alone).",
-  "limits": "Rebuilt from public data; the City's own Social Vulnerability Index replaces it when shared."
+  "status": "used",
+  "use": "Residents exposed to each hazard, and a vulnerability index from seven indicators: age 65 and over, age 0 to 4, low income (LIM-AT), one-person households, renter households, no knowledge of English or French, recent immigrants (2016 to 2021).",
+  "limits": "A public reconstruction, not the City's index; residents exposed are estimated from each area's share of buildings in the hazard area; suppressed sample values are left out, never counted as zero."
  },
  {
   "source": "Surrey Social Vulnerability Index (City with UBC, 2026)",

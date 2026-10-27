@@ -31,6 +31,7 @@ HAZARDS = {
 }
 
 VALUE_AREAS = {
+    "people": {"name": "Residents", "unit": "residents (estimated)", "bins": [100, 1000, 5000, 20000]},
     "buildings": {"name": "Buildings and property", "unit": "share of the city's buildings", "bins": [0.5, 2, 5, 10]},
     "emergency": {"name": "Emergency response sites", "unit": "sites", "bins": [0.5, 1, 2, 3],
                   "kinds": ["fire halls", "emergency services"]},
@@ -47,8 +48,8 @@ NOTES = {
 }
 
 NOT_ASSESSED = [
-    {"hazard": "Extreme heat", "why": "Needs dissemination-area census data for the people it harms; the page shows tree canopy by community as a sensitivity indicator meanwhile."},
-    {"hazard": "Wildfire smoke", "why": "City-wide; its consequence falls on people, so it waits for the census vulnerability layer."},
+    {"hazard": "Extreme heat", "why": "Needs a heat layer (surface temperature or projected hot days by area); the vulnerability layer and tree canopy are on the page meanwhile."},
+    {"hazard": "Wildfire smoke", "why": "City-wide, so exposure does not vary by place; the vulnerability layer shows who it harms most."},
     {"hazard": "Drought and water supply", "why": "No spatial City layer; listed in the data inventory."},
     {"hazard": "Extreme rainfall and drainage", "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."},
 ]
@@ -67,6 +68,9 @@ def risk_class(score: int) -> str:
 
 def exposure(metrics: dict, hazard: str, area: str) -> tuple[float, dict]:
     comms = metrics["communities"]
+    if area == "people":
+        by = metrics["people_exposed"][hazard]
+        return float(round(sum(by.values()))), by
     if area == "buildings":
         total = sum(c["buildings"] for c in comms.values())
         exposed = {n: c[hazard] for n, c in comms.items()}
@@ -84,6 +88,14 @@ def exposure(metrics: dict, hazard: str, area: str) -> tuple[float, dict]:
     raise ValueError(area)
 
 
+def people_note(metrics: dict, hazard: str) -> str:
+    total = sum(metrics["people_exposed"][hazard].values())
+    q5 = metrics["people_exposed_most_vulnerable_fifth"][hazard]
+    share = f"{100 * q5 / total:.0f}%" if total else "none"
+    return (f"Estimated from each dissemination area's population and its share of buildings in the hazard area; "
+            f"{share} of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).")
+
+
 def build(metrics: dict) -> dict:
     rows = []
     for hk, h in HAZARDS.items():
@@ -97,7 +109,8 @@ def build(metrics: dict) -> dict:
                 "hazard": hk, "hazard_name": h["name"], "value_area": ak, "value_area_name": a["name"],
                 "exposure": value, "unit": a["unit"], "by_community": by_community,
                 "likelihood": h["likelihood"], "consequence": c, "score": score, "class": risk_class(score),
-                "confidence": h["confidence"], "note": NOTES.get((hk, ak), ""),
+                "confidence": h["confidence"] if ak != "people" else "Medium",
+                "note": NOTES.get((hk, ak), "") or (people_note(metrics, hk) if ak == "people" else ""),
             })
     rows.sort(key=lambda r: (-r["score"], {"High": 0, "Medium": 1, "Low": 2}[r["confidence"]], r["hazard_name"]))
     for rank, r in enumerate(rows, 1):

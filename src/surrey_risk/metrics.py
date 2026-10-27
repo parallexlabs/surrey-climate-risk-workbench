@@ -5,7 +5,7 @@ import json
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from . import load
+from . import census, load
 from .geom import PolygonIndex, Raster, centroid, polygon_area
 
 COMMUNITIES = ["CITY CENTRE", "CLAYTON", "CLOVERDALE", "FLEETWOOD", "GRANDVIEW", "GUILDFORD", "NEWTON", "SOUTH SURREY", "WHALLEY"]
@@ -50,6 +50,10 @@ class Layers:
             "schools": load.points(raw, "schools"),
             "community-based organizations": load.points(raw, "community_organizations"),
         }
+        stat = raw / "statcan_2021"
+        self.da_rings = {k: [[(x, y) for x, y in ring] for ring in rings]
+                         for k, rings in json.loads((stat / "surrey_da_boundaries_utm10.json").read_text()).items()}
+        self.da_vuln = census.vulnerability(json.loads((stat / "surrey_da_profile.json").read_text()))
         self.canopy = {}
         for name in COMMUNITIES:
             path = city17 / f"canopy_{name.lower().replace(' ', '_')}.json"
@@ -97,6 +101,10 @@ def compute(raw: Path) -> dict:
             "interface": nat_r.cell_of(x, y) in nat_near,
         }
 
+    da_idx = PolygonIndex(cell=1000.0)
+    for k, rings in layers.da_rings.items():
+        da_idx.add(rings, k)
+    by_da = defaultdict(Counter)
     b = defaultdict(Counter)
     no_elev = 0
     for attrs, x, y in layers.buildings:
@@ -110,6 +118,13 @@ def compute(raw: Path) -> dict:
         b[name]["buildings"] += 1
         for k, v in f.items():
             b[name][k] += int(v)
+        hits = da_idx.hits(x, y)
+        if hits:
+            d = by_da[da_idx.tags[hits[0]]]
+            d["buildings"] += 1
+            d["community:" + name] += 1
+            for k, v in f.items():
+                d[k] += int(v)
         if attrs.get("CIVIC_FACILITY") == "Yes":
             b[name]["civic"] += 1
             for k, v in f.items():
@@ -144,7 +159,27 @@ def compute(raw: Path) -> dict:
         area_m2["WHALLEY"] -= area_m2["CITY CENTRE"]
         canopy_m2["WHALLEY"] -= canopy_m2["CITY CENTRE"]
 
-    out = {"communities": {}, "services": services,
+    # residents exposed: each dissemination area's population times the share of its buildings in the hazard area
+    people = {h: Counter() for h in ("flood", "low", "steep", "wildfire", "interface")}
+    people_q5 = Counter()
+    das_out = {}
+    for d, v in layers.da_vuln.items():
+        c = by_da.get(d, Counter())
+        home = max((k for k in c if k.startswith("community:")), key=lambda k: c[k], default="community:")[10:] or None
+        das_out[d] = {"population": v["population"], "quintile": v.get("quintile"), "index": None if v.get("index") is None else round(v["index"], 3),
+                      "community": home, "buildings": c["buildings"],
+                      **{k: round(v[k], 4) for k in ("age_65_plus", "age_0_4", "low_income", "one_person", "renter", "no_official_language", "recent_immigrants") if v.get(k) is not None}}
+        if not c["buildings"]:
+            continue
+        for h in people:
+            share = c[h] / c["buildings"]
+            people[h][home] += v["population"] * share
+            if v.get("quintile") == 5:
+                people_q5[h] += v["population"] * share
+
+    out = {"communities": {}, "services": services, "dissemination_areas": das_out,
+           "people_exposed": {h: {n: round(x) for n, x in people[h].items()} for h in people},
+           "people_exposed_most_vulnerable_fifth": {h: round(people_q5[h]) for h in people},
            "fire_classes": {f"{d} ({c})": n for (d, c), n in sorted(layers.fire_classes.items(), key=lambda t: t[0][1])},
            "buildings_without_elevation": no_elev,
            "parameters": {"low_ground_m": LOW_GROUND_M, "wildfire_near_m": WILDFIRE_NEAR_M,
@@ -156,6 +191,7 @@ def compute(raw: Path) -> dict:
             "canopy_pct": round(100 * canopy_m2[name] / area_m2[name], 1) if area_m2.get(name) else None,
             **{k: c[k] for k in ("buildings", "flood", "low", "steep", "wildfire", "interface", "civic",
                                  "civic_flood", "civic_low", "civic_steep", "civic_wildfire", "civic_interface")},
+            "residents": round(sum(v["population"] for d, v in das_out.items() if v["community"] == name)),
             "natural_ha": round(natural[name]["ha"], 1),
             "natural_ha_wildfire": round(natural[name]["ha_wildfire"], 1),
             "natural_ha_flood": round(natural[name]["ha_flood"], 1),

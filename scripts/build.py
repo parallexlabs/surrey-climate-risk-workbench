@@ -71,6 +71,8 @@ def main(cached: bool) -> None:
                      for p, r in load.geojson_polygons(RAW / "psta_fire_threat_000.json") if int(p.get("FIRE_THREAT_CLASS", -9)) >= 4],
         "natural": [to_svg(r, x0, y1, 8) for _, r in load.polygons(RAW, "natural_areas")],
         "dykes": [[round(x - x0), round(y1 - y)] for _, x, y in load.points(city17, "dykes_utm")],
+        "das": [{"id": k, "rings": to_svg([[tuple(p) for p in ring] for ring in rings], x0, y1, 6)}
+                for k, rings in json.loads((RAW / "statcan_2021" / "surrey_da_boundaries_utm10.json").read_text()).items()],
     }
     services = [dict(s, sx=round(s["x"] - x0), sy=round(y1 - s["y"])) for s in metrics["services"]]
     # coarse ground elevation for the screening tool: the median of building elevations in each 250 m cell

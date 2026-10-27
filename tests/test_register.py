@@ -12,6 +12,8 @@ METRICS = {
         "B": {"buildings": 3000, "flood": 0, "steep": 30, "wildfire": 0,
               "natural_ha_flood": 0.0, "natural_ha_steep": 160.0, "natural_ha_wildfire": 2.0},
     },
+    "people_exposed": {"flood": {"A": 900, "B": 0}, "steep": {"A": 0, "B": 1200}, "wildfire": {"A": 40, "B": 0}},
+    "people_exposed_most_vulnerable_fifth": {"flood": 300, "steep": 0, "wildfire": 0},
     "services": [
         {"kind": "fire halls", "community": "A", "flood": True, "steep": False, "wildfire": False},
         {"kind": "schools", "community": "B", "flood": False, "steep": True, "wildfire": False},
@@ -37,6 +39,13 @@ def test_exposure_counts_and_shares():
     assert sites == 2.0 and by == {"B": 2}
     ha, _ = register.exposure(METRICS, "steep", "natural")
     assert ha == 160.0
+
+
+def test_residents_row_and_note():
+    rows = register.build(METRICS)["rows"]
+    flood_people = next(r for r in rows if r["hazard"] == "flood" and r["value_area"] == "people")
+    assert flood_people["exposure"] == 900.0 and flood_people["consequence"] == 2
+    assert "33%" in flood_people["note"]
 
 
 def test_register_is_ranked_and_complete():

@@ -1,0 +1,57 @@
+{
+ "boundary_file": {
+  "name": "lda_000b21a_e.zip",
+  "sha256": "cb8e00a1165d8f309a62884860112944ea5acc177bb926d966b4a51fbd0c9ecb",
+  "product": "2021 Census cartographic boundary file, dissemination areas (lda_000b21a_e)"
+ },
+ "profile_file": {
+  "name": "98-401-X2021006_BC_CB_eng_CSV.zip",
+  "sha256": "067f53dfefece572dc9c83d24d90226cc7b7e217b90c4f724a21ffd90457f36f",
+  "product": "2021 Census Profile, comprehensive download, British Columbia (98-401-X2021006)"
+ },
+ "downloaded": "2026-10-27, by hand in a browser (www12.statcan.gc.ca allows hand reads only)",
+ "licence": "Statistics Canada Open Licence",
+ "indicators": {
+  "population": [
+   "1",
+   "Population, 2021"
+  ],
+  "age_0_4": [
+   "10",
+   "0 to 4 years"
+  ],
+  "age_65_plus": [
+   "24",
+   "65 years and over"
+  ],
+  "households": [
+   "50",
+   "Total - Private households by household size - 100% data"
+  ],
+  "one_person": [
+   "110",
+   "One-person households"
+  ],
+  "low_income_pct": [
+   "345",
+   "Prevalence of low income based on the Low-income measure, after tax (LIM-AT) (%)"
+  ],
+  "no_official_language": [
+   "387",
+   "Neither English nor French"
+  ],
+  "renter": [
+   "1416",
+   "Renter"
+  ],
+  "recent_immigrants": [
+   "1536",
+   "2016 to 2021"
+  ]
+ },
+ "excluded": {
+  "59152579": "Semiahmoo First Nation reserve (Semiahmoo IRI), not part of the City of Surrey"
+ },
+ "dissemination_areas": 666,
+ "population": 568322.0
+}
