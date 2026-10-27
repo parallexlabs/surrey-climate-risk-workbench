@@ -93,9 +93,6 @@
     10,
     50,
     150
-   ],
-   "hazards": [
-    "wildfire"
    ]
   }
  },
@@ -143,6 +140,58 @@
    "priority": 1
   },
   {
+   "hazard": "flood",
+   "hazard_name": "Riverine and coastal flooding",
+   "value_area": "natural",
+   "value_area_name": "Natural areas",
+   "exposure": 286.5,
+   "unit": "hectares of park natural area",
+   "by_community": {
+    "CITY CENTRE": 0,
+    "CLAYTON": 3.7,
+    "CLOVERDALE": 34.9,
+    "FLEETWOOD": 6.0,
+    "GRANDVIEW": 6.1,
+    "GUILDFORD": 5.6,
+    "NEWTON": 181.2,
+    "SOUTH SURREY": 38.6,
+    "WHALLEY": 10.4
+   },
+   "likelihood": 2,
+   "consequence": 5,
+   "score": 10,
+   "class": "High",
+   "confidence": "High",
+   "note": "Much of this is riparian area that floods naturally; the consequence for ecosystem services needs an ecological review.",
+   "priority": 1
+  },
+  {
+   "hazard": "steep",
+   "hazard_name": "Steep slope instability",
+   "value_area": "natural",
+   "value_area_name": "Natural areas",
+   "exposure": 564.1,
+   "unit": "hectares of park natural area",
+   "by_community": {
+    "CITY CENTRE": 5.2,
+    "CLAYTON": 23.3,
+    "CLOVERDALE": 36.9,
+    "FLEETWOOD": 69.3,
+    "GRANDVIEW": 61.9,
+    "GUILDFORD": 106.9,
+    "NEWTON": 75.0,
+    "SOUTH SURREY": 43.1,
+    "WHALLEY": 142.5
+   },
+   "likelihood": 2,
+   "consequence": 5,
+   "score": 10,
+   "class": "High",
+   "confidence": "High",
+   "note": "Much of this is ravine forest that is steep by nature; erosion and loss of ecosystem services need an ecological review.",
+   "priority": 1
+  },
+  {
    "hazard": "steep",
    "hazard_name": "Steep slope instability",
    "value_area": "people",
@@ -166,7 +215,7 @@
    "class": "High",
    "confidence": "Medium",
    "note": "Estimated from each dissemination area's population and its share of buildings in the hazard area; 10% of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).",
-   "priority": 2
+   "priority": 4
   },
   {
    "hazard": "steep",
@@ -192,7 +241,7 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 3
+   "priority": 5
   },
   {
    "hazard": "steep",
@@ -210,7 +259,7 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 4
+   "priority": 5
   },
   {
    "hazard": "flood",
@@ -236,7 +285,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "Estimated from each dissemination area's population and its share of buildings in the hazard area; 2% of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).",
-   "priority": 5
+   "priority": 7
   },
   {
    "hazard": "wildfire",
@@ -262,7 +311,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "Estimated from each dissemination area's population and its share of buildings in the hazard area; 31% of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).",
-   "priority": 6
+   "priority": 7
   },
   {
    "hazard": "wildfire",
@@ -300,7 +349,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 8
+   "priority": 7
   },
   {
    "hazard": "wildfire",
@@ -326,7 +375,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 9
+   "priority": 7
   },
   {
    "hazard": "flood",
@@ -352,7 +401,7 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 10
+   "priority": 12
   },
   {
    "hazard": "flood",
@@ -371,7 +420,7 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 11
+   "priority": 12
   },
   {
    "hazard": "steep",
@@ -417,7 +466,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 13
+   "priority": 15
   },
   {
    "hazard": "wildfire",
@@ -435,7 +484,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 14
+   "priority": 15
   },
   {
    "hazard": "flood",
@@ -448,10 +497,10 @@
    "likelihood": 2,
    "consequence": 1,
    "score": 2,
-   "class": "Low",
+   "class": "No exposure found",
    "confidence": "High",
    "note": "",
-   "priority": 15
+   "priority": 17
   },
   {
    "hazard": "steep",
@@ -464,20 +513,20 @@
    "likelihood": 2,
    "consequence": 1,
    "score": 2,
-   "class": "Low",
+   "class": "No exposure found",
    "confidence": "High",
    "note": "",
-   "priority": 16
+   "priority": 17
   }
  ],
  "not_assessed": [
   {
    "hazard": "Extreme heat",
-   "why": "Needs a heat layer (surface temperature or projected hot days by area); the vulnerability layer and tree canopy are on the page meanwhile."
+   "why": "A current hazard in Surrey; not rated here because no heat layer (surface temperature or projected hot days by area) is in the prototype. The vulnerability layer and tree canopy show where heat would harm most."
   },
   {
    "hazard": "Wildfire smoke",
-   "why": "City-wide, so exposure does not vary by place; the vulnerability layer shows who it harms most."
+   "why": "A current hazard; it reaches the whole city, but harm differs by person and building, which needs health and indoor-air data this prototype does not have."
   },
   {
    "hazard": "Drought and water supply",

@@ -18,7 +18,7 @@
   "retrieved": "2026-10-17",
   "hazards": "all",
   "status": "used",
-  "use": "Building exposure by community; ground at or below 3 m as a sea-level-rise flag.",
+  "use": "Building exposure by community; ground at or below 3 m as a low-lying screening flag (not an inundation model).",
   "limits": "Elevation datum as published; 300 buildings have no elevation and are counted without the flag."
  },
  {
@@ -74,7 +74,7 @@
   "hazards": "wildfire",
   "status": "used",
   "use": "Buildings, services and natural areas within 200 m of moderate or high threat.",
-  "limits": "Private land is not rated (343 polygons), so exposure on private land is not measured; not a parcel-level assessment."
+  "limits": "A relative threat class, not an annual probability. Private land is a no-data class (343 polygons), so fuels on private land are not rated; buildings on private land near rated public-land polygons are counted. Not a parcel-level assessment."
  },
  {
   "source": "Drainage dyke infrastructure",

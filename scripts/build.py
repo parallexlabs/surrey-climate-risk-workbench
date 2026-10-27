@@ -50,7 +50,7 @@ def main(cached: bool) -> None:
     (OUT / "register.json").write_text(json.dumps(reg, indent=1))
     with open(OUT / "register.csv", "w", newline="") as fh:
         w = csv.writer(fh)
-        w.writerow(["priority", "hazard", "value area", "exposure", "unit", "likelihood", "consequence", "score", "class", "confidence"])
+        w.writerow(["screening rank", "hazard", "value area", "exposure", "unit", "likelihood (default)", "exposure class", "screening score", "class", "data confidence"])
         for r in reg["rows"]:
             w.writerow([r["priority"], r["hazard_name"], r["value_area_name"], r["exposure"], r["unit"],
                         r["likelihood"], r["consequence"], r["score"], r["class"], r["confidence"]])

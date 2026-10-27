@@ -39,22 +39,24 @@ VALUE_AREAS = {
                   "kinds": ["drainage pump stations", "water utility facilities"]},
     "community": {"name": "Schools and community services", "unit": "sites", "bins": [0.5, 2.5, 5.5, 10.5],
                   "kinds": ["schools", "community-based organizations"]},
-    # flooding and steep ground are the natural state of riparian areas and ravines; only wildfire is rated for them
-    "natural": {"name": "Natural areas", "unit": "hectares of park natural area", "bins": [0.5, 10, 50, 150], "hazards": ["wildfire"]},
+    "natural": {"name": "Natural areas", "unit": "hectares of park natural area", "bins": [0.5, 10, 50, 150]},
 }
 
 NOTES = {
     ("flood", "utilities"): "Drainage pump stations sit in the floodplain they drain, by design: the rating flags them for a resilience check (power, controls and access during a flood), not as misplaced.",
+    ("flood", "natural"): "Much of this is riparian area that floods naturally; the consequence for ecosystem services needs an ecological review.",
+    ("steep", "natural"): "Much of this is ravine forest that is steep by nature; erosion and loss of ecosystem services need an ecological review.",
 }
 
 NOT_ASSESSED = [
-    {"hazard": "Extreme heat", "why": "Needs a heat layer (surface temperature or projected hot days by area); the vulnerability layer and tree canopy are on the page meanwhile."},
-    {"hazard": "Wildfire smoke", "why": "City-wide, so exposure does not vary by place; the vulnerability layer shows who it harms most."},
+    {"hazard": "Extreme heat", "why": "A current hazard in Surrey; not rated here because no heat layer (surface temperature or projected hot days by area) is in the prototype. The vulnerability layer and tree canopy show where heat would harm most."},
+    {"hazard": "Wildfire smoke", "why": "A current hazard; it reaches the whole city, but harm differs by person and building, which needs health and indoor-air data this prototype does not have."},
     {"hazard": "Drought and water supply", "why": "No spatial City layer; listed in the data inventory."},
     {"hazard": "Extreme rainfall and drainage", "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."},
 ]
 
 CLASSES = [(4, "Low"), (9, "Medium"), (16, "High"), (25, "Very high")]
+NONE_FOUND = "No exposure found"
 
 
 def consequence(value: float, bins: list[float]) -> int:
@@ -105,14 +107,20 @@ def build(metrics: dict) -> dict:
             value, by_community = exposure(metrics, hk, ak)
             c = consequence(value, a["bins"])
             score = h["likelihood"] * c
+            label = risk_class(score) if value > 0 else NONE_FOUND
             rows.append({
                 "hazard": hk, "hazard_name": h["name"], "value_area": ak, "value_area_name": a["name"],
                 "exposure": value, "unit": a["unit"], "by_community": by_community,
-                "likelihood": h["likelihood"], "consequence": c, "score": score, "class": risk_class(score),
+                "likelihood": h["likelihood"], "consequence": c, "score": score, "class": label,
                 "confidence": h["confidence"] if ak != "people" else "Medium",
                 "note": NOTES.get((hk, ak), "") or (people_note(metrics, hk) if ak == "people" else ""),
             })
-    rows.sort(key=lambda r: (-r["score"], {"High": 0, "Medium": 1, "Low": 2}[r["confidence"]], r["hazard_name"]))
-    for rank, r in enumerate(rows, 1):
+    rows.sort(key=lambda r: (r["class"] == NONE_FOUND, -r["score"], {"High": 0, "Medium": 1, "Low": 2}[r["confidence"]], r["hazard_name"]))
+    # rows with the same score and confidence share a rank: the ordering between them carries no meaning
+    rank, prev = 0, None
+    for i, r in enumerate(rows, 1):
+        key = (r["class"] == NONE_FOUND, r["score"], r["confidence"])
+        if key != prev:
+            rank, prev = i, key
         r["priority"] = rank
     return {"hazards": HAZARDS, "value_areas": VALUE_AREAS, "classes": CLASSES, "rows": rows, "not_assessed": NOT_ASSESSED}

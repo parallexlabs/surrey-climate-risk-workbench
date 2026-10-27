@@ -48,13 +48,22 @@ def test_residents_row_and_note():
     assert "33%" in flood_people["note"]
 
 
+def test_ties_share_a_rank():
+    rows = register.build(METRICS)["rows"]
+    for a, b in zip(rows, rows[1:]):
+        same = (a["class"] == register.NONE_FOUND) == (b["class"] == register.NONE_FOUND) and a["score"] == b["score"] and a["confidence"] == b["confidence"]
+        assert (a["priority"] == b["priority"]) == same
+
+
 def test_register_is_ranked_and_complete():
     out = register.build(METRICS)
     rows = out["rows"]
     expected = sum(1 for h in register.HAZARDS for a in register.VALUE_AREAS.values() if h in a.get("hazards", register.HAZARDS))
     assert len(rows) == expected
-    assert not any(r["value_area"] == "natural" and r["hazard"] != "wildfire" for r in rows)
-    assert [r["priority"] for r in rows] == list(range(1, len(rows) + 1))
-    assert all(rows[i]["score"] >= rows[i + 1]["score"] for i in range(len(rows) - 1))
+    rated = [r for r in rows if r["class"] != register.NONE_FOUND]
+    assert all(rated[i]["score"] >= rated[i + 1]["score"] for i in range(len(rated) - 1))
+    assert all(r["exposure"] == 0 for r in rows if r["class"] == register.NONE_FOUND)
+    ranks = [r["priority"] for r in rows]
+    assert ranks == sorted(ranks) and ranks[0] == 1
     flood_buildings = next(r for r in rows if r["hazard"] == "flood" and r["value_area"] == "buildings")
     assert flood_buildings["consequence"] == 3 and flood_buildings["score"] == 6 and flood_buildings["class"] == "Medium"

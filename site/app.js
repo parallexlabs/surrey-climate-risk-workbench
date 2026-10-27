@@ -180,7 +180,7 @@
     out += row(steep ? Y : N0, "Inside the steep slope hazard lands or their 10 to 30 m buffer." + (steep ? " A geotechnical review is the usual next step." : ""));
     out += row(fireD <= D.metrics.parameters.wildfire_near_m ? Y : N0, "Within " + D.metrics.parameters.wildfire_near_m + " m of moderate or high provincial wildfire threat (public land only; nearest " + (isFinite(fireD) ? fmt(fireD) + " m" : "none") + ").");
     out += row(natD <= D.metrics.parameters.interface_near_m ? Y : N0, "Within " + D.metrics.parameters.interface_near_m + " m of a park natural area (nearest " + fmt(natD) + " m): interface vegetation and ember exposure.");
-    out += row(["ask", fmt(hallD) + " m"], "Straight-line distance to the nearest fire hall.");
+    out += row(["ask", fmt(hallD) + " m"], "Straight-line distance to the nearest fire hall (not a response time).");
     var da = (L.das || []).filter(function (d) { return inRings(sx, sy, d.rings); })[0];
     var dv = da ? DAS[da.id] : null;
     if (dv && dv.quintile) {
@@ -222,18 +222,29 @@
   function cls(score) { for (var i = 0; i < R.classes.length; i++) if (score <= R.classes[i][0]) return R.classes[i][1]; return "Very high"; }
   var current = [];
   function renderRegister() {
+    var CONF = { High: 0, Medium: 1, Low: 2 };
     current = R.rows.map(function (r) {
       var score = lik[r.hazard] * r.consequence;
-      return Object.assign({}, r, { likelihood: lik[r.hazard], score: score, "class": cls(score) });
-    }).sort(function (a, b) { return b.score - a.score || ({ High: 0, Medium: 1, Low: 2 }[a.confidence] - { High: 0, Medium: 1, Low: 2 }[b.confidence]); });
-    var h = '<thead><tr><th class="num">Rank</th><th>Hazard</th><th>Value area</th><th class="num">Exposure</th><th class="num">L</th><th class="num">C</th><th class="num">Score</th><th>Class</th><th>Confidence</th><th>Most exposed communities</th></tr></thead><tbody>';
+      return Object.assign({}, r, { likelihood: lik[r.hazard], score: score, "class": r.exposure > 0 ? cls(score) : "No exposure found" });
+    }).sort(function (a, b) {
+      var na = a["class"] === "No exposure found", nb = b["class"] === "No exposure found";
+      return (na - nb) || (b.score - a.score) || (CONF[a.confidence] - CONF[b.confidence]);
+    });
+    var rank = 0, prev = null;
+    current.forEach(function (r, i) {
+      var key = (r["class"] === "No exposure found") + "|" + r.score + "|" + r.confidence;
+      if (key !== prev) { rank = i + 1; prev = key; }
+      r.rank = rank;
+    });
+    var h = '<thead><tr><th class="num">Screening rank</th><th>Hazard</th><th>Value area</th><th class="num">Exposure</th><th class="num">Likelihood (default)</th><th class="num">Exposure class</th><th class="num">Screening score</th><th>Class</th><th>Data confidence</th><th>Most exposed communities</th></tr></thead><tbody>';
     current.forEach(function (r, i) {
       var top = Object.keys(r.by_community).filter(function (n) { return r.by_community[n] > 0 && n !== "null"; })
         .sort(function (a, b) { return r.by_community[b] - r.by_community[a]; }).slice(0, 3).map(title).join(", ");
-      var unit = r.unit === "share of the city's buildings" ? "%" : (r.unit === "sites" ? " sites" : " ha");
-      h += "<tr><td class=\"num\">" + (i + 1) + "</td><td>" + r.hazard_name + "</td><td>" + r.value_area_name + "</td><td class=\"num\">" +
-        fmt(r.exposure, unit === "%" ? 2 : (unit === " ha" ? 1 : 0)) + unit + "</td><td class=\"num\">" + r.likelihood + "</td><td class=\"num\">" + r.consequence +
-        "</td><td class=\"num\">" + r.score + "</td><td><span class=\"cls cls-" + r["class"].replace(" ", "-") + "\">" + r["class"] + "</span></td><td>" + r.confidence + "</td><td>" + (top || "none") + "</td></tr>" +
+      var unit = r.unit === "share of the city's buildings" ? "%" : (r.unit === "sites" ? " sites" : (r.unit.indexOf("residents") === 0 ? " residents" : " ha"));
+      var shown = unit === " residents" ? "about " + fmt(Math.round(r.exposure / 100) * 100) : fmt(r.exposure, unit === "%" ? 2 : (unit === " ha" ? 1 : 0));
+      h += "<tr><td class=\"num\">" + r.rank + "</td><td>" + r.hazard_name + "</td><td>" + r.value_area_name + "</td><td class=\"num\">" +
+        shown + unit + "</td><td class=\"num\">" + r.likelihood + "</td><td class=\"num\">" + r.consequence +
+        "</td><td class=\"num\">" + r.score + "</td><td><span class=\"cls cls-" + r["class"].split(" ").join("-") + "\">" + r["class"] + "</span></td><td>" + r.confidence + "</td><td>" + (top || "none") + "</td></tr>" +
         (r.note ? '<tr class="note"><td></td><td colspan="9" class="muted">' + r.note + "</td></tr>" : "");
     });
     $("reg-table").innerHTML = h + "</tbody>";
@@ -242,7 +253,7 @@
     for (var l = 5; l >= 1; l--) {
       m += "<div><strong>L" + l + "</strong></div>";
       for (c = 1; c <= 5; c++) {
-        var n = current.filter(function (r) { return r.likelihood === l && r.consequence === c; }).length;
+        var n = current.filter(function (r) { return r.likelihood === l && r.consequence === c && r["class"] !== "No exposure found"; }).length;
         m += '<div class="cls-' + cls(l * c).replace(" ", "-") + '">' + (n || "") + "</div>";
       }
     }
@@ -251,8 +262,8 @@
   renderRegister();
   $("not-assessed").innerHTML = R.not_assessed.map(function (n) { return "<li><strong>" + n.hazard + ".</strong> " + n.why + "</li>"; }).join("");
   $("csv").addEventListener("click", function () {
-    var lines = [["rank", "hazard", "value area", "exposure", "unit", "likelihood", "consequence", "score", "class", "confidence"]];
-    current.forEach(function (r, i) { lines.push([i + 1, r.hazard_name, r.value_area_name, r.exposure, r.unit, r.likelihood, r.consequence, r.score, r["class"], r.confidence]); });
+    var lines = [["screening rank", "hazard", "value area", "exposure", "unit", "likelihood (default)", "exposure class", "screening score", "class", "data confidence"]];
+    current.forEach(function (r) { lines.push([r.rank, r.hazard_name, r.value_area_name, r.exposure, r.unit, r.likelihood, r.consequence, r.score, r["class"], r.confidence]); });
     var text = lines.map(function (row) { return row.map(function (v) { v = String(v); return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v; }).join(","); }).join("\n");
     var a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
@@ -265,7 +276,7 @@
   Object.keys(M).sort(function (a, b) { return M[b].flood / M[b].buildings - M[a].flood / M[a].buildings; }).forEach(function (n) {
     var c = M[n], b = c.buildings || 1, pct = function (k) { return fmt(100 * c[k] / b, 1) + "%"; };
     var sites = D.services.filter(function (s) { return s.community === n && s.flood; }).length;
-    var pf = ((D.metrics.people_exposed || {}).flood || {})[n] || 0;
+    var pf = Math.round((((D.metrics.people_exposed || {}).flood || {})[n] || 0) / 100) * 100;
     ch += "<tr><td>" + title(n) + '</td><td class="num">' + fmt(c.residents || 0) + '</td><td class="num">' + fmt(pf) + '</td><td class="num">' + fmt(c.buildings) + '</td><td class="num">' + pct("flood") + '</td><td class="num">' + pct("low") +
       '</td><td class="num">' + pct("steep") + '</td><td class="num">' + pct("wildfire") + '</td><td class="num">' + pct("interface") + '</td><td class="num">' + sites +
       '</td><td class="num">' + (c.canopy_pct === null ? "n/a" : fmt(c.canopy_pct, 1) + "%") + "</td></tr>";
@@ -282,14 +293,16 @@
 
   /* ---------- method ---------- */
   var P = D.metrics.parameters;
+  var Q5SHARE = (function () { var t = 0, q = 0; Object.keys(DAS).forEach(function (k) { t += DAS[k].population; if (DAS[k].quintile === 5) q += DAS[k].population; }); return t ? 100 * q / t : 0; })();
   $("method").innerHTML =
     "<h2>Method and limits</h2>" +
-    "<h3>What is measured</h3><p>Each of the City's " + fmt(Object.keys(M).reduce(function (s, n) { return s + M[n].buildings; }, 0)) +
-    " building footprints is placed at its centroid and tested against the 200-year floodplain, the steep slope hazard lands (with their buffer) and, by a " + P.raster_cell_m +
+    "<h3>What is measured</h3><p>Each of the " + fmt(Object.keys(M).reduce(function (s, n) { return s + M[n].buildings; }, 0)) +
+    " building footprints the City publishes is placed at its centroid and tested against the 200-year floodplain, the steep slope hazard lands (with their buffer) and, by a " + P.raster_cell_m +
     " m grid, the distance to moderate or high provincial wildfire threat (" + P.wildfire_near_m + " m) and to park natural areas (" + P.interface_near_m +
     " m). Service sites and natural areas get the same tests. Ground at or below " + P.low_ground_m + " m uses the City's published building ground elevation, datum as published.</p>" +
-    "<h3>How the register is rated</h3><p>Score = likelihood × consequence on a 5 by 5 matrix. Consequence comes from measured exposure through stated bins (buildings: share of the city's buildings; services: number of sites; natural areas: hectares). Likelihood is a stated default per hazard that the assessment team sets with the City, under its chosen time horizons and climate scenarios. Confidence reflects the source: High for the City's mapped layers, Medium where the provincial wildfire layer leaves private land unrated.</p>" +
-    "<h3>People and vulnerability</h3><p>Residents come from the 2021 Census by dissemination area (666 areas, 568,322 residents; the Semiahmoo First Nation reserve, an enclave inside the City's boundary but not part of the City, is left out). Residents exposed to a hazard are estimated as each area's population times its share of buildings in the hazard area. The vulnerability index averages seven standardized indicators: age 65 and over, age 0 to 4, low income (LIM-AT), one-person households, renter households, no knowledge of English or French, and recent immigrants. It is a public reconstruction; in an assessment the City's own Social Vulnerability Index takes its place.</p>" +
-    "<h3>What it is not</h3><p>It models no flood depth, no damage and no probability under future climate. The wildfire layer does not rate private land, so private-land interface exposure is not measured. It is a prototype built from public data; it is not the City's assessment and is not endorsed by the City.</p>" +
+    "<h3>How the register is rated</h3><p>It is a screening ranking of exposure, not a consequence assessment. Each row is one hazard meeting one value area. Measured exposure becomes an exposure class (1 to 5) through stated bins (buildings: share of the city's building footprints; services: number of sites; natural areas: hectares; residents: estimated count). The screening score multiplies that class by a default likelihood that is the same for every hazard until an assessment sets it with the City, under its chosen time horizons and scenarios. Rows with equal scores and confidence share a rank. A row with no exposure says so instead of rating Low. Data confidence describes the source layer, not the result.</p>" +
+    "<h3>The hazard layers, as published</h3><p>Flooding: the City's mapped 200-year floodplain, a design event with a 0.5% chance of being exceeded in a year; it is not the same inundation probability everywhere inside the outline. Ground at or below " + P.low_ground_m + " m is a screening flag for low-lying land (datum as published), not an inundation model. Steep slopes: the City's Hazard Lands layer, with its steep slope and buffer classes as published; it gives no landslide likelihood or runout. Wildfire: the provincial PSTA fire threat rating, a relative threat class (moderate 4 to 6, high 7 to 8, extreme 9 to 10), not an annual probability. Private land is a no-data class, so fuels on private land are not rated; buildings and sites on private land within " + P.wildfire_near_m + " m of rated moderate or higher public-land polygons are counted. The " + P.wildfire_near_m + " m distance is a screening choice, not a fire-spread boundary.</p>" +
+    "<h3>People and vulnerability</h3><p>Residents come from the 2021 Census by dissemination area (666 areas, 568,322 residents; the Semiahmoo First Nation reserve, an enclave inside the City's boundary but not part of the City, is left out). Residents exposed to a hazard are estimated as each area's population times its share of building footprints in the hazard area. That assumes equal occupancy per footprint, so the counts are rounded and are estimates. The vulnerability index uses seven indicators, each a share of the area's population or households, where a higher share counts as more vulnerable: age 65 and over, age 0 to 4, low income (LIM-AT), one-person households, renter households, no knowledge of English or French, and recent immigrants (2016 to 2021). Each is standardized across Surrey's areas and the seven are averaged with equal weights; an indicator suppressed for confidentiality is left out of that area's average, and an area needs four of the seven. Quintiles split the areas into five groups of equal count, not equal population: the most vulnerable fifth holds " + fmt(Q5SHARE, 1) + "% of residents. It is a simple public stand-in; the City's own vulnerability work takes its place in an assessment, and area averages cannot say which individuals are vulnerable.</p>" +
+    "<h3>What it is not</h3><p>It models no flood depth, no damage and no probability under future climate. Extreme heat and wildfire smoke are current hazards in Surrey that this prototype lists but cannot rate. It is a prototype built from public data; it is not the City's assessment and is not endorsed by the City.</p>" +
     "<h3>Reproduce it</h3><p>Every input page is saved with its address, retrieval time and SHA-256; one script rebuilds every figure on this page from those inputs.</p>";
 })();
