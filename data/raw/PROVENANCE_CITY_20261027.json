@@ -1,51 +1,63 @@
 [
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/CommunityBasedOrganizations/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:16-07:00",
   "sha256": "d0e4936249c42c2bfd7aebc07633a25c4e7ed4af3e358d82f4fc2de0f6cd18bc",
   "bytes": 5540,
   "layer": "community_organizations",
-  "features": 24
+  "service": "CommunityBasedOrganizations",
+  "features": 24,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Emergency_Services/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:15-07:00",
   "sha256": "a582bd3ebc41b0a58749b4d9d6edcc0f3c905c88a428dac6ba33c262c2cc610c",
   "bytes": 4727,
   "layer": "emergency_services",
-  "features": 23
+  "service": "Emergency_Services",
+  "features": 23,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/firehalls/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:13-07:00",
   "sha256": "e510f67135c375cd72903063128605e783a88645e4e503c45b5ad428db43831a",
   "bytes": 6408,
   "layer": "firehalls",
-  "features": 16
+  "service": "firehalls",
+  "features": 16,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Drainage%20Pump%20Stations/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:18-07:00",
   "sha256": "3c2a046ce1ecbdfa070baa8fb5f6016d4506c30b3914ed3c7e9cf014b3f7dcc3",
   "bytes": 15090,
   "layer": "pump_stations",
-  "features": 41
+  "service": "Drainage Pump Stations",
+  "features": 41,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Schools/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:11-07:00",
   "sha256": "1fc26fc342f66bb3577c630dd9d2dd1eb66421c8c86aa9eaaf72d767494d6e45",
   "bytes": 346522,
   "layer": "schools",
-  "features": 180
+  "service": "Schools",
+  "features": 180,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
-  "url": "(first run; query as in scripts/fetch_city_layers.py)",
+  "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Water%20Utility%20Facilities/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=2000&orderByFields=OBJECTID",
   "fetched_at": "2026-10-27T03:07:20-07:00",
   "sha256": "15c01576f041901fc899fc6512f37d7da9ff7315734ccc18dc20a9600a765b9f",
   "bytes": 19354,
   "layer": "water_facilities",
-  "features": 35
+  "service": "Water Utility Facilities",
+  "features": 35,
+  "note": "Fetched at the time shown by the first copy of the fetch script, which was not kept. The URL is the query scripts/fetch_layers.py sends for this layer; the stored file has that query's form (all fields, spatial reference 26910, one page under the 2,000 feature page size). Not fetched again."
  },
  {
   "url": "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services/Coastal_Flood_Adaptation_Strategy_Boundary/FeatureServer/0/query?where=1%3D1&outFields=%2A&outSR=26910&f=json&resultOffset=0&resultRecordCount=100&orderByFields=OBJECTID&maxAllowableOffset=1",
