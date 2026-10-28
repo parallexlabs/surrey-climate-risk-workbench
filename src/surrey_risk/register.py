@@ -33,12 +33,10 @@ HAZARDS = {
 VALUE_AREAS = {
     "people": {"name": "Residents", "unit": "residents (estimated)", "bins": [100, 1000, 5000, 20000]},
     "buildings": {"name": "Buildings and property", "unit": "share of the city's buildings", "bins": [0.5, 2, 5, 10]},
-    "emergency": {"name": "Emergency response sites", "unit": "sites", "bins": [0.5, 1, 2, 3],
-                  "kinds": ["fire halls", "emergency services"]},
     "utilities": {"name": "Drainage and water infrastructure", "unit": "sites", "bins": [0.5, 3, 10, 25],
                   "kinds": ["drainage pump stations", "water utility facilities"]},
-    "community": {"name": "Schools and community services", "unit": "sites", "bins": [0.5, 2.5, 5.5, 10.5],
-                  "kinds": ["schools", "community-based organizations"]},
+    "community": {"name": "Schools", "unit": "sites", "bins": [0.5, 2.5, 5.5, 10.5],
+                  "kinds": ["schools"]},
     "natural": {"name": "Natural areas", "unit": "hectares of park natural area", "bins": [0.5, 10, 50, 150]},
 }
 
@@ -53,6 +51,7 @@ NOT_ASSESSED = [
     {"hazard": "Wildfire smoke", "why": "A current hazard; it reaches the whole city, but harm differs by person and building, which needs health and indoor-air data this prototype does not have."},
     {"hazard": "Drought and water supply", "why": "No spatial City layer; listed in the data inventory."},
     {"hazard": "Extreme rainfall and drainage", "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."},
+    {"hazard": "Emergency response sites and community-based organizations (all hazards)", "why": "Fire halls, emergency services and community-based organizations are shared on the City's ArcGIS Online but are not listed in its open data catalogue, so they are withdrawn until the City confirms they may be reused."},
 ]
 
 CLASSES = [(4, "Low"), (9, "Medium"), (16, "High"), (25, "Very high")]

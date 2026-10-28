@@ -43,20 +43,6 @@
     10
    ]
   },
-  "emergency": {
-   "name": "Emergency response sites",
-   "unit": "sites",
-   "bins": [
-    0.5,
-    1,
-    2,
-    3
-   ],
-   "kinds": [
-    "fire halls",
-    "emergency services"
-   ]
-  },
   "utilities": {
    "name": "Drainage and water infrastructure",
    "unit": "sites",
@@ -72,7 +58,7 @@
    ]
   },
   "community": {
-   "name": "Schools and community services",
+   "name": "Schools",
    "unit": "sites",
    "bins": [
     0.5,
@@ -81,8 +67,7 @@
     10.5
    ],
    "kinds": [
-    "schools",
-    "community-based organizations"
+    "schools"
    ]
   },
   "natural": {
@@ -244,24 +229,6 @@
    "priority": 5
   },
   {
-   "hazard": "steep",
-   "hazard_name": "Steep slope instability",
-   "value_area": "emergency",
-   "value_area_name": "Emergency response sites",
-   "exposure": 2.0,
-   "unit": "sites",
-   "by_community": {
-    "GUILDFORD": 2
-   },
-   "likelihood": 2,
-   "consequence": 4,
-   "score": 8,
-   "class": "Medium",
-   "confidence": "High",
-   "note": "",
-   "priority": 5
-  },
-  {
    "hazard": "flood",
    "hazard_name": "Riverine and coastal flooding",
    "value_area": "people",
@@ -285,7 +252,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "Estimated from each dissemination area's population and its share of buildings in the hazard area; 2% of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).",
-   "priority": 7
+   "priority": 6
   },
   {
    "hazard": "wildfire",
@@ -311,31 +278,13 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "Estimated from each dissemination area's population and its share of buildings in the hazard area; 31% of them live in the most vulnerable fifth of dissemination areas (2021 Census, public reconstruction).",
-   "priority": 7
-  },
-  {
-   "hazard": "wildfire",
-   "hazard_name": "Wildfire at the urban interface",
-   "value_area": "emergency",
-   "value_area_name": "Emergency response sites",
-   "exposure": 2.0,
-   "unit": "sites",
-   "by_community": {
-    "GRANDVIEW": 2
-   },
-   "likelihood": 2,
-   "consequence": 4,
-   "score": 8,
-   "class": "Medium",
-   "confidence": "Medium",
-   "note": "",
-   "priority": 7
+   "priority": 6
   },
   {
    "hazard": "wildfire",
    "hazard_name": "Wildfire at the urban interface",
    "value_area": "community",
-   "value_area_name": "Schools and community services",
+   "value_area_name": "Schools",
    "exposure": 6.0,
    "unit": "sites",
    "by_community": {
@@ -349,7 +298,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 7
+   "priority": 6
   },
   {
    "hazard": "wildfire",
@@ -375,7 +324,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 7
+   "priority": 6
   },
   {
    "hazard": "flood",
@@ -401,18 +350,17 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 12
+   "priority": 10
   },
   {
    "hazard": "flood",
    "hazard_name": "Riverine and coastal flooding",
    "value_area": "community",
-   "value_area_name": "Schools and community services",
-   "exposure": 5.0,
+   "value_area_name": "Schools",
+   "exposure": 3.0,
    "unit": "sites",
    "by_community": {
-    "WHALLEY": 4,
-    "SOUTH SURREY": 1
+    "WHALLEY": 3
    },
    "likelihood": 2,
    "consequence": 3,
@@ -420,13 +368,13 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 12
+   "priority": 10
   },
   {
    "hazard": "steep",
    "hazard_name": "Steep slope instability",
    "value_area": "community",
-   "value_area_name": "Schools and community services",
+   "value_area_name": "Schools",
    "exposure": 4.0,
    "unit": "sites",
    "by_community": {
@@ -440,7 +388,7 @@
    "class": "Medium",
    "confidence": "High",
    "note": "",
-   "priority": 12
+   "priority": 10
   },
   {
    "hazard": "wildfire",
@@ -466,7 +414,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 15
+   "priority": 13
   },
   {
    "hazard": "wildfire",
@@ -484,23 +432,7 @@
    "class": "Medium",
    "confidence": "Medium",
    "note": "",
-   "priority": 15
-  },
-  {
-   "hazard": "flood",
-   "hazard_name": "Riverine and coastal flooding",
-   "value_area": "emergency",
-   "value_area_name": "Emergency response sites",
-   "exposure": 0.0,
-   "unit": "sites",
-   "by_community": {},
-   "likelihood": 2,
-   "consequence": 1,
-   "score": 2,
-   "class": "No exposure found",
-   "confidence": "High",
-   "note": "",
-   "priority": 17
+   "priority": 13
   },
   {
    "hazard": "steep",
@@ -516,7 +448,7 @@
    "class": "No exposure found",
    "confidence": "High",
    "note": "",
-   "priority": 17
+   "priority": 15
   }
  ],
  "not_assessed": [
@@ -535,6 +467,10 @@
   {
    "hazard": "Extreme rainfall and drainage",
    "why": "Needs the City's drainage model results; pump stations in the floodplain are counted under flooding."
+  },
+  {
+   "hazard": "Emergency response sites and community-based organizations (all hazards)",
+   "why": "Fire halls, emergency services and community-based organizations are shared on the City's ArcGIS Online but are not listed in its open data catalogue, so they are withdrawn until the City confirms they may be reused."
   }
  ]
 }

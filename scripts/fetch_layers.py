@@ -23,17 +23,13 @@ USER_AGENT = "surrey-climate-risk-workbench/0.3 (+https://parallexlabs.ca)"
 CITY = "https://services5.arcgis.com/YRpe0VKTJytZSSIB/arcgis/rest/services"
 PAGE = 2000
 # polygon layers with heavy rings: smaller pages and a 1 m generalization keep each answer small
-SMALL = {"cfas_boundary": 100, "natural_areas": 200}
+SMALL = {"natural_areas": 200}
 
 # name in this repository -> City service name (layer 0 of each FeatureServer)
 LAYERS = {
     "schools": "Schools",
-    "firehalls": "firehalls",
-    "emergency_services": "Emergency_Services",
-    "community_organizations": "CommunityBasedOrganizations",
     "pump_stations": "Drainage Pump Stations",
     "water_facilities": "Water Utility Facilities",
-    "cfas_boundary": "Coastal_Flood_Adaptation_Strategy_Boundary",
     "natural_areas": "Park Natural Areas",
 }
 # Surrey's extent in NAD83 / UTM zone 10N, from the City's boundary layer

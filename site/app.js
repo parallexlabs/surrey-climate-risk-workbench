@@ -77,8 +77,7 @@
     t.setAttribute("paint-order", "stroke"); t.setAttribute("stroke", "#ffffff"); t.setAttribute("stroke-width", "90");
     t.textContent = title(c.name); gComm.appendChild(t);
   });
-  var KINDS = { "fire halls": "#b3261e", "emergency services": "#7a1f5c", "drainage pump stations": "#1f5f8b",
-    "water utility facilities": "#2a7f8f", "schools": "#5b4a8a", "community-based organizations": "#8a6a1f" };
+  var KINDS = { "drainage pump stations": "#1f5f8b", "water utility facilities": "#2a7f8f", "schools": "#5b4a8a" };
   var gServices = group("services");
   D.services.forEach(function (s) {
     var c = document.createElementNS(SVGNS, "circle");
@@ -166,8 +165,6 @@
     var fireD = Math.min.apply(null, L.wildfire.map(function (w) { return distTo(sx, sy, w.rings); }).concat([Infinity]));
     var natD = Math.min.apply(null, L.natural.map(function (r) { return distTo(sx, sy, r); }).concat([Infinity]));
     var g = D.elevation_grid_m, key = Math.floor(sx / g) + "," + Math.floor(sy / g), elev = D.elevation[key];
-    var halls = D.services.filter(function (s) { return s.kind === "fire halls"; });
-    var hallD = Math.min.apply(null, halls.map(function (s) { return Math.hypot(s.sx - sx, s.sy - sy); }));
     var low = elev === undefined ? null : elev <= D.metrics.parameters.low_ground_m;
     function row(state, text) { return '<li><span class="' + state[0] + '">' + state[1] + "</span><span>" + text + "</span></li>"; }
     var Y = ["yes", "Yes"], N0 = ["no", "No"], A = ["ask", "Project"];
@@ -180,7 +177,6 @@
     out += row(steep ? Y : N0, "Inside the steep slope hazard lands or their 10 to 30 m buffer." + (steep ? " A geotechnical review is the usual next step." : ""));
     out += row(fireD <= D.metrics.parameters.wildfire_near_m ? Y : N0, "Within " + D.metrics.parameters.wildfire_near_m + " m of moderate or high provincial wildfire threat (public land only; nearest " + (isFinite(fireD) ? fmt(fireD) + " m" : "none") + ").");
     out += row(natD <= D.metrics.parameters.interface_near_m ? Y : N0, "Within " + D.metrics.parameters.interface_near_m + " m of a park natural area (nearest " + fmt(natD) + " m): interface vegetation and ember exposure.");
-    out += row(["ask", fmt(hallD) + " m"], "Straight-line distance to the nearest fire hall.");
     var da = (L.das || []).filter(function (d) { return inRings(sx, sy, d.rings); })[0];
     var dv = da ? DAS[da.id] : null;
     if (dv && dv.quintile) {

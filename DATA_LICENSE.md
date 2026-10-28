@@ -1,8 +1,20 @@
 # Data licences
 
-## City of Surrey open data
+## City of Surrey data
 
-Contains information licensed under the Open Government License - City of Surrey (opendata-surrey.hub.arcgis.com). Layers: community boundaries, 200-year floodplain, Hazard Lands development permit area, drainage dyke infrastructure, building footprints, tree canopy statistics, schools, fire halls, emergency services, community-based organizations, drainage pump stations, water utility facilities, park natural areas, and the Coastal Flood Adaptation Strategy boundary (recorded, not used). Retrieval times and SHA-256 of every page: `data/raw/city_20261017/PROVENANCE_CITY_20261017.json` and `data/raw/PROVENANCE_CITY_20261027.json`.
+The City layers here come from the City of Surrey Open Data Catalog (opendata-surrey.hub.arcgis.com): community boundaries, 200-year floodplain, Hazard Lands development permit area, drainage dyke infrastructure, building footprints, tree canopy statistics, schools, drainage pump stations, water utility facilities and park natural areas.
+
+What we have read about their licence:
+
+- The catalogue's site-wide licence page (read 2026-10-17) is the Open Government License - City of Surrey. It is the only licence text we have found for these layers.
+- The dataset pages for schools, drainage pump stations, park natural areas and water utility facilities (read 2026-10-27) say "No License Provided". The item records of the other six layers, saved on 2026-10-17, carry no licence either.
+- The City has not yet confirmed that the site-wide licence covers these layers. Until it does, treat their licence as unconfirmed. This file will be updated when the City answers.
+
+Attribution, as the site-wide licence asks: Contains information licensed under the Open Government License - City of Surrey.
+
+Withdrawn on 2026-10-27: fire halls, emergency services, community-based organizations and the Coastal Flood Adaptation Strategy boundary. They are shared on the City's ArcGIS Online but are not listed in its open data catalogue, so they were removed from the current files and the page until the City confirms they may be reused.
+
+Retrieval times and SHA-256 of every page used: `data/raw/city_20261017/PROVENANCE_CITY_20261017.json` and `data/raw/PROVENANCE_CITY_20261027.json`.
 
 ## Province of British Columbia
 

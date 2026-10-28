@@ -6,10 +6,10 @@ It is an exposure-screening prototype for discussion; the list below says what i
 
 ## What it shows
 
-- Where the 137,647 building footprints the City publishes, 319 service sites, 673 park natural areas and 568,322 residents meet the 200-year floodplain, the steep slope hazard lands and moderate or higher provincial wildfire threat.
+- Where the 137,647 building footprints the City publishes, 256 service sites (schools, drainage pump stations and water utility facilities), 673 park natural areas and 568,322 residents meet the 200-year floodplain, the steep slope hazard lands and moderate or higher provincial wildfire threat.
 - Who is most vulnerable among those exposed: a vulnerability index for 666 dissemination areas from seven 2021 Census indicators. For example, about 31% of the residents near moderate or higher wildfire threat live in the most vulnerable fifth of dissemination areas, which holds 22% of all residents.
-- A screening ranking of 18 hazard and value-area pairs on a 5 by 5 matrix, with the likelihoods as editable defaults.
-- A screening checklist for any point in the city: the hazards there, the ground elevation nearby, the straight-line distance to a fire hall, the area's vulnerability, and the questions a project team answers itself.
+- A screening ranking of 15 hazard and value-area pairs on a 5 by 5 matrix, with the likelihoods as editable defaults.
+- A screening checklist for any point in the city: the hazards there, the ground elevation nearby, the area's vulnerability, and the questions a project team answers itself.
 - A data inventory: what each source is, its licence, how it is used and where it stops.
 
 ## Exposure by community
@@ -37,19 +37,16 @@ Built 2026-10-27. Footprints are counted at their centroid; City Centre is count
 | 1 | Steep slope instability | Natural areas | 564.1 ha | 10 | High |
 | 4 | Steep slope instability | Residents | about 29,800 residents | 10 | High |
 | 5 | Steep slope instability | Buildings and property | 6.07% of footprints | 8 | Medium |
-| 5 | Steep slope instability | Emergency response sites | 2 sites | 8 | Medium |
-| 7 | Riverine and coastal flooding | Residents | about 8,000 residents | 8 | Medium |
-| 7 | Wildfire at the urban interface | Residents | about 13,000 residents | 8 | Medium |
-| 7 | Wildfire at the urban interface | Emergency response sites | 2 sites | 8 | Medium |
-| 7 | Wildfire at the urban interface | Schools and community services | 6 sites | 8 | Medium |
-| 7 | Wildfire at the urban interface | Natural areas | 68.5 ha | 8 | Medium |
-| 12 | Riverine and coastal flooding | Buildings and property | 4.03% of footprints | 6 | Medium |
-| 12 | Riverine and coastal flooding | Schools and community services | 5 sites | 6 | Medium |
-| 12 | Steep slope instability | Schools and community services | 4 sites | 6 | Medium |
-| 15 | Wildfire at the urban interface | Buildings and property | 3.55% of footprints | 6 | Medium |
-| 15 | Wildfire at the urban interface | Drainage and water infrastructure | 3 sites | 6 | Medium |
-| 17 | Riverine and coastal flooding | Emergency response sites | 0 sites | 2 | No exposure found |
-| 17 | Steep slope instability | Drainage and water infrastructure | 0 sites | 2 | No exposure found |
+| 6 | Riverine and coastal flooding | Residents | about 8,000 residents | 8 | Medium |
+| 6 | Wildfire at the urban interface | Residents | about 13,000 residents | 8 | Medium |
+| 6 | Wildfire at the urban interface | Schools | 6 sites | 8 | Medium |
+| 6 | Wildfire at the urban interface | Natural areas | 68.5 ha | 8 | Medium |
+| 10 | Riverine and coastal flooding | Buildings and property | 4.03% of footprints | 6 | Medium |
+| 10 | Riverine and coastal flooding | Schools | 3 sites | 6 | Medium |
+| 10 | Steep slope instability | Schools | 4 sites | 6 | Medium |
+| 13 | Wildfire at the urban interface | Buildings and property | 3.55% of footprints | 6 | Medium |
+| 13 | Wildfire at the urban interface | Drainage and water infrastructure | 3 sites | 6 | Medium |
+| 15 | Steep slope instability | Drainage and water infrastructure | 0 sites | 2 | No exposure found |
 
 Screening score = default likelihood × exposure class (from stated bins). Rows with equal scores and data confidence share a rank. Drainage pump stations sit in the floodplain they drain, by design: their row flags them for a resilience check of power, controls and access during a flood. Much of the natural area in the floodplain and on steep slopes is riparian and ravine land that is so by nature; its consequence needs an ecological review.
 
@@ -76,13 +73,14 @@ Python 3.11 or later, standard library only.
 - Model inundation, depth, damage or future climate. The floodplain is the City's mapped 200-year design event (0.5% annual exceedance); ground at or below 3 m is a screening flag for low-lying land.
 - Give a landslide likelihood or runout. Steep slopes are the City's Hazard Lands classes as published.
 - Give an annual wildfire probability. PSTA is a relative threat class; private land is a no-data class, so fuels there are unrated, while footprints on private land near rated public-land polygons are counted. The 200 m distance is a screening choice.
-- Give fire response times. The checklist shows the straight-line distance to the nearest fire hall.
+- Give fire response times.
+- Cover fire halls, emergency services or community-based organizations. These layers are shared on the City's ArcGIS Online but are not listed in its open data catalogue, so they are withdrawn until the City confirms they may be reused.
 - Rate extreme heat or wildfire smoke, both current hazards in Surrey, or drought and drainage, which need layers this prototype does not have.
 - Identify vulnerable individuals. The index is a simple public stand-in from seven census indicators with equal weights; the City's own vulnerability work takes its place in an assessment.
 
 ## Data licences
 
-Contains information licensed under the Open Government License - City of Surrey, and under the Open Government Licence - British Columbia. Adapted from Statistics Canada, 2021 Census of Population; this does not constitute an endorsement by Statistics Canada of this product. See `DATA_LICENSE.md`.
+The City layers come from the City of Surrey's open data catalogue. Its site-wide licence page names the Open Government License - City of Surrey, but the dataset pages say "No License Provided", so the licence for each layer is not yet confirmed. The provincial layer is licensed under the Open Government Licence - British Columbia. Adapted from Statistics Canada, 2021 Census of Population; this does not constitute an endorsement by Statistics Canada of this product. See `DATA_LICENSE.md`.
 
 ## Licence
 

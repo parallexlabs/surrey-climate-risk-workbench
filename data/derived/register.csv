@@ -4,16 +4,13 @@ screening rank,hazard,value area,exposure,unit,likelihood (default),exposure cla
 1,Steep slope instability,Natural areas,564.1,hectares of park natural area,2,5,10,High,High
 4,Steep slope instability,Residents,29780.0,residents (estimated),2,5,10,High,Medium
 5,Steep slope instability,Buildings and property,6.07,share of the city's buildings,2,4,8,Medium,High
-5,Steep slope instability,Emergency response sites,2.0,sites,2,4,8,Medium,High
-7,Riverine and coastal flooding,Residents,8004.0,residents (estimated),2,4,8,Medium,Medium
-7,Wildfire at the urban interface,Residents,12960.0,residents (estimated),2,4,8,Medium,Medium
-7,Wildfire at the urban interface,Emergency response sites,2.0,sites,2,4,8,Medium,Medium
-7,Wildfire at the urban interface,Schools and community services,6.0,sites,2,4,8,Medium,Medium
-7,Wildfire at the urban interface,Natural areas,68.5,hectares of park natural area,2,4,8,Medium,Medium
-12,Riverine and coastal flooding,Buildings and property,4.03,share of the city's buildings,2,3,6,Medium,High
-12,Riverine and coastal flooding,Schools and community services,5.0,sites,2,3,6,Medium,High
-12,Steep slope instability,Schools and community services,4.0,sites,2,3,6,Medium,High
-15,Wildfire at the urban interface,Buildings and property,3.55,share of the city's buildings,2,3,6,Medium,Medium
-15,Wildfire at the urban interface,Drainage and water infrastructure,3.0,sites,2,3,6,Medium,Medium
-17,Riverine and coastal flooding,Emergency response sites,0.0,sites,2,1,2,No exposure found,High
-17,Steep slope instability,Drainage and water infrastructure,0.0,sites,2,1,2,No exposure found,High
+6,Riverine and coastal flooding,Residents,8004.0,residents (estimated),2,4,8,Medium,Medium
+6,Wildfire at the urban interface,Residents,12960.0,residents (estimated),2,4,8,Medium,Medium
+6,Wildfire at the urban interface,Schools,6.0,sites,2,4,8,Medium,Medium
+6,Wildfire at the urban interface,Natural areas,68.5,hectares of park natural area,2,4,8,Medium,Medium
+10,Riverine and coastal flooding,Buildings and property,4.03,share of the city's buildings,2,3,6,Medium,High
+10,Riverine and coastal flooding,Schools,3.0,sites,2,3,6,Medium,High
+10,Steep slope instability,Schools,4.0,sites,2,3,6,Medium,High
+13,Wildfire at the urban interface,Buildings and property,3.55,share of the city's buildings,2,3,6,Medium,Medium
+13,Wildfire at the urban interface,Drainage and water infrastructure,3.0,sites,2,3,6,Medium,Medium
+15,Steep slope instability,Drainage and water infrastructure,0.0,sites,2,1,2,No exposure found,High

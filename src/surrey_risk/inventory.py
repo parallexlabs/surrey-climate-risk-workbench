@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 CITY = "City of Surrey open data (ArcGIS Online)"
-OGL_SURREY = "Open Government License - City of Surrey"
+OGL_SURREY = "Open Government License - City of Surrey (the catalogue's site-wide licence page; not yet confirmed for each layer, see DATA_LICENSE.md)"
 OGL_BC = "Open Government Licence - British Columbia"
 OL_STATCAN = "Statistics Canada Open Licence"
 
@@ -24,8 +24,8 @@ RECORDS = [
     {"source": "Tree canopy (statistics per community)", "provider": CITY, "licence": OGL_SURREY, "form": "server-side sums",
      "retrieved": "2026-10-17", "hazards": "extreme heat", "status": "used",
      "use": "Canopy share as a heat sensitivity indicator.", "limits": "Whole canopy polygons that cross a boundary are counted in each community."},
-    {"source": "Schools, fire halls, emergency services, community-based organizations, drainage pump stations, water utility facilities, park natural areas",
-     "provider": CITY, "licence": OGL_SURREY, "form": "180, 16, 23, 24, 41, 35 sites; 673 natural area polygons",
+    {"source": "Schools, drainage pump stations, water utility facilities, park natural areas",
+     "provider": CITY, "licence": OGL_SURREY, "form": "180, 41, 35 sites; 673 natural area polygons",
      "retrieved": "2026-10-27", "hazards": "all", "status": "used",
      "use": "Exposure of critical and community services and natural areas.", "limits": "Point locations; the site's ground elevation is not published for most service layers."},
     {"source": "PSTA fire threat rating", "provider": "BC Wildfire Service (BC Geographic Warehouse)", "licence": OGL_BC,
@@ -35,9 +35,11 @@ RECORDS = [
     {"source": "Drainage dyke infrastructure", "provider": CITY, "licence": OGL_SURREY, "form": "326 records",
      "retrieved": "2026-10-17", "hazards": "flooding", "status": "recorded",
      "use": "Shown on the map; not rated.", "limits": "Inspection points and fences as published, not dyke crest levels."},
-    {"source": "Coastal Flood Adaptation Strategy boundary", "provider": CITY, "licence": OGL_SURREY, "form": "one polygon",
-     "retrieved": "2026-10-27", "hazards": "flooding", "status": "not used",
-     "use": "None.", "limits": "Published inverted: a 294,075 km2 outer ring with the study area as its hole."},
+    {"source": "Fire halls, emergency services, community-based organizations; Coastal Flood Adaptation Strategy boundary",
+     "provider": CITY, "licence": "None found: not listed in the City's open data catalogue", "form": "16, 23, 24 sites; one polygon",
+     "retrieved": "2026-10-27", "hazards": "all", "status": "withdrawn",
+     "use": "None. Removed from this repository and the page until the City confirms they may be reused.",
+     "limits": "Shared publicly on the City's ArcGIS Online, but not listed in its open data catalogue."},
     {"source": "Flood elevation areas", "provider": CITY, "licence": OGL_SURREY, "form": "polygons",
      "retrieved": "2026-10-27", "hazards": "flooding", "status": "not used yet",
      "use": "None in this pass.", "limits": "A page of 100 features exceeded 16 MB; needs a generalized export."},

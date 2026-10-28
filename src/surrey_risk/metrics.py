@@ -27,8 +27,6 @@ class Layers:
             # the layer's one "Flood prone area" polygon is the 200-year floodplain itself; counting it would double the flood
             if a.get("DESCRIPTION") != "Flood prone area":
                 self.steep.add(r, a.get("DESCRIPTION"))
-        # cfas_boundary is published inverted (a 294,075 km2 outer ring with the study area as its hole), so it is
-        # recorded in the inventory and not used as a hazard area; the 200-year floodplain carries the flood test
         self.fire_mod = PolygonIndex()
         self.fire_classes: Counter = Counter()
         for p, r in load.geojson_polygons(raw / "psta_fire_threat_000.json"):
@@ -42,13 +40,12 @@ class Layers:
             self.natural.add(r, a.get("NATURAL_AREA_TYPE"))
             self.natural_records.append((a, r))
         self.buildings = load.points(city17, "buildings_centroids")
+        # fire halls, emergency services and community-based organizations are shared on the City's ArcGIS Online but
+        # are not in its open data catalogue, so they are withdrawn until the City confirms they may be reused
         self.services = {
-            "fire halls": load.points(raw, "firehalls"),
-            "emergency services": load.points(raw, "emergency_services"),
             "drainage pump stations": load.points(raw, "pump_stations"),
             "water utility facilities": load.points(raw, "water_facilities"),
             "schools": load.points(raw, "schools"),
-            "community-based organizations": load.points(raw, "community_organizations"),
         }
         stat = raw / "statcan_2021"
         self.da_rings = {k: [[(x, y) for x, y in ring] for ring in rings]

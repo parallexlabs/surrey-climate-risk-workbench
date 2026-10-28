@@ -15,7 +15,7 @@ METRICS = {
     "people_exposed": {"flood": {"A": 900, "B": 0}, "steep": {"A": 0, "B": 1200}, "wildfire": {"A": 40, "B": 0}},
     "people_exposed_most_vulnerable_fifth": {"flood": 300, "steep": 0, "wildfire": 0},
     "services": [
-        {"kind": "fire halls", "community": "A", "flood": True, "steep": False, "wildfire": False},
+        {"kind": "drainage pump stations", "community": "A", "flood": True, "steep": False, "wildfire": False},
         {"kind": "schools", "community": "B", "flood": False, "steep": True, "wildfire": False},
         {"kind": "schools", "community": "B", "flood": False, "steep": True, "wildfire": False},
     ],
